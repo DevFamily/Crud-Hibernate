@@ -27,7 +27,6 @@ public class Principal extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         rSPanelGradiente1 = new rspanelgradiente.RSPanelGradiente();
         jPanel1 = new javax.swing.JPanel();
@@ -42,7 +41,6 @@ public class Principal extends javax.swing.JFrame {
         btnSobre = new rojeru_san.RSButton();
         btnConfigurar = new rojeru_san.RSButton();
         pnSlider = new rojerusan.RSPanelsSlider();
-        pnInicio1 = new Visao.paineis.PnInicio();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -193,7 +191,6 @@ public class Principal extends javax.swing.JFrame {
         );
 
         pnSlider.setBackground(new java.awt.Color(204, 204, 204));
-        pnSlider.add(pnInicio1, "card2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -259,7 +256,6 @@ public class Principal extends javax.swing.JFrame {
     private rojeru_san.RSButton btnVenda;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private Visao.paineis.PnInicio pnInicio1;
     private rojerusan.RSPanelsSlider pnSlider;
     private rspanelgradiente.RSPanelGradiente rSPanelGradiente1;
     private rojerusan.RSPanelImage rSPanelImage1;
