@@ -51,7 +51,7 @@ public class PnCliente extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("CLIENTE");
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Tomas Mufume\\Pictures\\User Groups_100px.png")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Visao/imagens/User Groups_100px.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
