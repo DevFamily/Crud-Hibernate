@@ -48,9 +48,9 @@ public class PnFornecedor extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("VENDAS");
+        jLabel1.setText("FORNECEDOR");
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Visao/paineis/Sell Stock_100px.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\FLAVIO RICARDO\\Pictures\\Deliver Food_100px.png")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -125,11 +125,11 @@ public class PnFornecedor extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Código", "Produtos", "Cliente", "Data"
+                "Código", "Nome", "Morada", "Contactos", "E-mail"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
