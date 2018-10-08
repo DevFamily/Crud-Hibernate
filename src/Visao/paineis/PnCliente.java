@@ -67,7 +67,7 @@ public class PnCliente extends javax.swing.JPanel {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(13, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel3)
@@ -90,11 +90,11 @@ public class PnCliente extends javax.swing.JPanel {
         rSButton2.setColorHover(new java.awt.Color(51, 51, 51));
 
         rSButton3.setBackground(new java.awt.Color(102, 102, 102));
-        rSButton3.setText("Calendário");
+        rSButton3.setText("Excluir");
         rSButton3.setColorHover(new java.awt.Color(51, 51, 51));
 
         rSButton4.setBackground(new java.awt.Color(102, 102, 102));
-        rSButton4.setText("Calendário");
+        rSButton4.setText("Imprimir");
         rSButton4.setColorHover(new java.awt.Color(51, 51, 51));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -132,11 +132,11 @@ public class PnCliente extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Código", "Nome", "Morada", "Email"
+                "Código", "Nome", "Morada", "Telefone", "Email"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -160,7 +160,7 @@ public class PnCliente extends javax.swing.JPanel {
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 507, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)
         );
 
         rSMetroTextPlaceHolder1.setForeground(new java.awt.Color(51, 51, 51));

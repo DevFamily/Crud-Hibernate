@@ -103,6 +103,11 @@ public class Principal extends javax.swing.JFrame {
         btnInicio.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btnInicio.setIconTextGap(25);
         btnInicio.setSelected(true);
+        btnInicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInicioActionPerformed(evt);
+            }
+        });
 
         btnVenda.setBackground(new java.awt.Color(102, 102, 102));
         btnVenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Visao/menu/Sell Stock_50px.png"))); // NOI18N
@@ -199,7 +204,7 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(rSPanelGradiente1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(pnSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(pnSlider, javax.swing.GroupLayout.DEFAULT_SIZE, 820, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -209,6 +214,10 @@ public class Principal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnInicioActionPerformed
 
     /**
      * @param args the command line arguments
