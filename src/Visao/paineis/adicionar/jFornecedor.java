@@ -44,6 +44,8 @@ public class jFornecedor extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         rSButton1 = new rojeru_san.RSButton();
         rSButton2 = new rojeru_san.RSButton();
+        jLabel5 = new javax.swing.JLabel();
+        rSMTextFull5 = new rojeru_san.RSMTextFull();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -80,25 +82,25 @@ public class jFornecedor extends javax.swing.JFrame {
 
         rSMTextFull1.setBackground(new java.awt.Color(204, 204, 204));
         rSMTextFull1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
-        rSMTextFull1.setForeground(new java.awt.Color(0, 0, 0));
+        rSMTextFull1.setForeground(new java.awt.Color(255, 255, 255));
         rSMTextFull1.setBordeColorFocus(new java.awt.Color(0, 0, 0));
         rSMTextFull1.setBotonColor(new java.awt.Color(0, 0, 0));
         rSMTextFull1.setPlaceholder("");
 
         rSMTextFull2.setBackground(new java.awt.Color(204, 204, 204));
-        rSMTextFull2.setForeground(new java.awt.Color(0, 0, 0));
+        rSMTextFull2.setForeground(new java.awt.Color(255, 255, 255));
         rSMTextFull2.setBordeColorFocus(new java.awt.Color(0, 0, 0));
         rSMTextFull2.setBotonColor(new java.awt.Color(0, 0, 0));
         rSMTextFull2.setPlaceholder("");
 
         rSMTextFull3.setBackground(new java.awt.Color(204, 204, 204));
-        rSMTextFull3.setForeground(new java.awt.Color(0, 0, 0));
+        rSMTextFull3.setForeground(new java.awt.Color(255, 255, 255));
         rSMTextFull3.setBordeColorFocus(new java.awt.Color(0, 0, 0));
         rSMTextFull3.setBotonColor(new java.awt.Color(0, 0, 0));
         rSMTextFull3.setPlaceholder("");
 
         rSMTextFull4.setBackground(new java.awt.Color(204, 204, 204));
-        rSMTextFull4.setForeground(new java.awt.Color(0, 0, 0));
+        rSMTextFull4.setForeground(new java.awt.Color(255, 255, 255));
         rSMTextFull4.setBordeColorFocus(new java.awt.Color(0, 0, 0));
         rSMTextFull4.setBotonColor(new java.awt.Color(0, 0, 0));
         rSMTextFull4.setPlaceholder("");
@@ -120,6 +122,15 @@ public class jFornecedor extends javax.swing.JFrame {
 
         rSButton2.setBackground(new java.awt.Color(102, 102, 102));
         rSButton2.setText("Cancelar");
+
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel5.setText("Email");
+
+        rSMTextFull5.setBackground(new java.awt.Color(204, 204, 204));
+        rSMTextFull5.setForeground(new java.awt.Color(255, 255, 255));
+        rSMTextFull5.setBordeColorFocus(new java.awt.Color(0, 0, 0));
+        rSMTextFull5.setBotonColor(new java.awt.Color(0, 0, 0));
+        rSMTextFull5.setPlaceholder("");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -143,16 +154,17 @@ public class jFornecedor extends javax.swing.JFrame {
                                     .addComponent(rSMTextFull2, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(rSMTextFull1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(rSMTextFull4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(rSMTextFull3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(rSMTextFull3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(rSMTextFull4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(rSMTextFull5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(20, 20, 20))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
@@ -178,10 +190,14 @@ public class jFornecedor extends javax.swing.JFrame {
                     .addComponent(rSMTextFull3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(rSMTextFull4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(rSMTextFull5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(43, 43, 43)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rSButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(rSButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -234,6 +250,7 @@ public class jFornecedor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
@@ -244,5 +261,6 @@ public class jFornecedor extends javax.swing.JFrame {
     private rojeru_san.RSMTextFull rSMTextFull2;
     private rojeru_san.RSMTextFull rSMTextFull3;
     private rojeru_san.RSMTextFull rSMTextFull4;
+    private rojeru_san.RSMTextFull rSMTextFull5;
     // End of variables declaration//GEN-END:variables
 }
