@@ -7,7 +7,8 @@ package Visao.splash;
 
 
 
-import Visao.menu.Principal;
+
+import Visao.principal.Menu;
 import java.awt.Toolkit;
 
 /**
@@ -35,12 +36,12 @@ public class Entrar extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        btnEntrar = new rojerusan.RSButtonMetro();
+        rSMTextFull4 = new rojeru_san.RSMTextFull();
+        btnEntrar = new rojeru_san.RSButton();
+        rSMPassView1 = new rojeru_san.RSMPassView();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -62,18 +63,6 @@ public class Entrar extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Visao/splash/Male Use_100px.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, -1, 110));
 
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        jTextField1.setOpaque(false);
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 320, 30));
-
-        jPasswordField1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jPasswordField1.setForeground(new java.awt.Color(255, 255, 255));
-        jPasswordField1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        jPasswordField1.setOpaque(false);
-        jPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, 320, 30));
-
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(204, 204, 204));
         jLabel3.setText("Senha :");
@@ -92,14 +81,29 @@ public class Entrar extends javax.swing.JFrame {
         });
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 60, 40));
 
+        rSMTextFull4.setBackground(new java.awt.Color(102, 102, 102));
+        rSMTextFull4.setForeground(new java.awt.Color(0, 0, 0));
+        rSMTextFull4.setBordeColorFocus(new java.awt.Color(0, 0, 0));
+        rSMTextFull4.setBotonColor(new java.awt.Color(0, 0, 0));
+        rSMTextFull4.setPlaceholder("Introduzir o nome de Usuário");
+        jPanel1.add(rSMTextFull4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 320, -1));
+
         btnEntrar.setBackground(new java.awt.Color(51, 51, 51));
         btnEntrar.setText("Entrar");
+        btnEntrar.setColorHover(new java.awt.Color(255, 0, 102));
         btnEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEntrarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 130, 50));
+        jPanel1.add(btnEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, 170, -1));
+
+        rSMPassView1.setBackground(new java.awt.Color(102, 102, 102));
+        rSMPassView1.setForeground(new java.awt.Color(0, 0, 0));
+        rSMPassView1.setBordeColorFocus(new java.awt.Color(0, 0, 0));
+        rSMPassView1.setBotonColor(new java.awt.Color(0, 0, 0));
+        rSMPassView1.setPlaceholder("Introduzir a Senha");
+        jPanel1.add(rSMPassView1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, 320, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -132,9 +136,9 @@ System.exit(0);
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        Principal n = new Principal();
-        n.setVisible(true);
-        dispose();
+       Menu p = new Menu();
+       p.setVisible(true);
+       this.dispose();
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     /**
@@ -143,13 +147,13 @@ System.exit(0);
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private rojerusan.RSButtonMetro btnEntrar;
+    private rojeru_san.RSButton btnEntrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private rojeru_san.RSMPassView rSMPassView1;
+    private rojeru_san.RSMTextFull rSMTextFull4;
     // End of variables declaration//GEN-END:variables
 }
