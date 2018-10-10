@@ -5,6 +5,8 @@
  */
 package Visao.paineis;
 
+import Visao.paineis.adicionar.jCliente;
+
 /**
  *
  * @author Tomas Mufume
@@ -166,7 +168,8 @@ public class pnlClientes extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void nProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nProdutoActionPerformed
-        
+        jCliente c = new  jCliente();  
+        c.setVisible(true);
     }//GEN-LAST:event_nProdutoActionPerformed
 
 
