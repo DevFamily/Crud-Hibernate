@@ -5,6 +5,8 @@
  */
 package Visao.paineis;
 
+import Visao.paineis.adicionar.jUsuario;
+
 /**
  *
  * @author TM
@@ -115,6 +117,11 @@ public class pnlUsuarios extends javax.swing.JPanel {
         rSButton1.setToolTipText("Nova Venda");
         rSButton1.setColorHover(new java.awt.Color(51, 51, 51));
         rSButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        rSButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSButton1ActionPerformed(evt);
+            }
+        });
 
         rSButton2.setBackground(new java.awt.Color(102, 102, 102));
         rSButton2.setText("Actualizar");
@@ -190,6 +197,13 @@ public class pnlUsuarios extends javax.swing.JPanel {
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void rSButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButton1ActionPerformed
+        jUsuario u = new jUsuario();
+        u.setVisible(true);
+        
+// TODO add your handling code here:
+    }//GEN-LAST:event_rSButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
