@@ -5,6 +5,7 @@
  */
 package Visao.paineis;
 
+import Visao.paineis.adicionar.jFornecedor;
 import java.awt.Color;
 
 /**
@@ -109,10 +110,15 @@ public class PnlFornecedores extends javax.swing.JPanel {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         rSButton1.setBackground(new java.awt.Color(102, 102, 102));
-        rSButton1.setText("Nova Venda");
+        rSButton1.setText("Novo Fornecedor");
         rSButton1.setToolTipText("Nova Venda");
         rSButton1.setColorHover(new java.awt.Color(51, 51, 51));
         rSButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        rSButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSButton1ActionPerformed(evt);
+            }
+        });
 
         rSButton2.setBackground(new java.awt.Color(102, 102, 102));
         rSButton2.setText("Cotação");
@@ -134,12 +140,12 @@ public class PnlFornecedores extends javax.swing.JPanel {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(rSButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rSButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(rSButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(rSButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 225, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)
                 .addComponent(rSMTextFull1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -188,6 +194,11 @@ public class PnlFornecedores extends javax.swing.JPanel {
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void rSButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButton1ActionPerformed
+        jFornecedor f  = new jFornecedor();
+        f.setVisible(true);
+    }//GEN-LAST:event_rSButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
