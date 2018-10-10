@@ -46,9 +46,9 @@ public class jUsuario extends javax.swing.JFrame {
         rSButton2 = new rojeru_san.RSButton();
         jLabel5 = new javax.swing.JLabel();
         rSMTextFull5 = new rojeru_san.RSMTextFull();
-        jLabel8 = new javax.swing.JLabel();
+        jlUsuario = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        rSMTextFull6 = new rojeru_san.RSMTextFull();
+        tuEmail = new rojeru_san.RSMTextFull();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -142,18 +142,22 @@ public class jUsuario extends javax.swing.JFrame {
         rSMTextFull5.setBotonColor(new java.awt.Color(0, 0, 0));
         rSMTextFull5.setPlaceholder("");
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel8.setText("Preencher todos os Campos!");
+        jlUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jlUsuario.setForeground(new java.awt.Color(204, 0, 0));
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel9.setText("Email");
 
-        rSMTextFull6.setBackground(new java.awt.Color(204, 204, 204));
-        rSMTextFull6.setForeground(new java.awt.Color(255, 255, 255));
-        rSMTextFull6.setBordeColorFocus(new java.awt.Color(0, 0, 0));
-        rSMTextFull6.setBotonColor(new java.awt.Color(0, 0, 0));
-        rSMTextFull6.setPlaceholder("");
+        tuEmail.setBackground(new java.awt.Color(204, 204, 204));
+        tuEmail.setForeground(new java.awt.Color(255, 255, 255));
+        tuEmail.setBordeColorFocus(new java.awt.Color(0, 0, 0));
+        tuEmail.setBotonColor(new java.awt.Color(0, 0, 0));
+        tuEmail.setPlaceholder("");
+        tuEmail.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tuEmailFocusLost(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -164,7 +168,7 @@ public class jUsuario extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(100, 100, 100)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jlUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(rSButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -188,7 +192,7 @@ public class jUsuario extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(rSMTextFull6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(tuEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(18, 18, 18))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -218,10 +222,10 @@ public class jUsuario extends javax.swing.JFrame {
                     .addComponent(rSMTextFull1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(rSMTextFull2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 16, Short.MAX_VALUE)))
+                        .addGap(0, 22, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -233,13 +237,13 @@ public class jUsuario extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(rSMTextFull5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE))
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(rSMTextFull6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE))
+                    .addComponent(tuEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE))
                 .addGap(32, 32, 32)
-                .addComponent(jLabel8)
+                .addComponent(jlUsuario)
                 .addGap(11, 11, 11)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rSButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -256,6 +260,40 @@ public class jUsuario extends javax.swing.JFrame {
        this.dispose();
     }//GEN-LAST:event_rSButton2ActionPerformed
 
+    private void tuEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tuEmailFocusLost
+     if ((tuEmail.getText().contains("@")) && 
+(tuEmail.getText().contains(".")) && 
+(!tuEmail.getText().contains(" "))) {
+ 
+String usuario = new String(tuEmail.getText().substring(0, 
+tuEmail.getText().lastIndexOf('@')));
+ 
+            String dominio = new String(tuEmail.getText().substring(tuEmail.getText().lastIndexOf
+('@') + 1, tuEmail.getText().length()));
+ 
+            if ((usuario.length() >=1) && (!usuario.contains("@")) && 
+(dominio.contains(".")) && (!dominio.contains("@")) && (dominio.indexOf(".") >= 
+1) && (dominio.lastIndexOf(".") < dominio.length() - 1)) {
+ 
+            jlUsuario.setText("");
+ 
+            } else {
+ 
+               jlUsuario.setText("E-mail Inválido");
+ 
+                jlUsuario.requestFocus();
+ 
+            }
+ 
+        } else {
+ 
+            jlUsuario.setText("E-mail Inválido");
+ 
+           jlUsuario.requestFocus();
+ 
+        }
+    }//GEN-LAST:event_tuEmailFocusLost
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -266,10 +304,10 @@ public class jUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel jlUsuario;
     private rojeru_san.RSButton rSButton1;
     private rojeru_san.RSButton rSButton2;
     private rojeru_san.RSMTextFull rSMTextFull1;
@@ -277,6 +315,6 @@ public class jUsuario extends javax.swing.JFrame {
     private rojeru_san.RSMTextFull rSMTextFull3;
     private rojeru_san.RSMTextFull rSMTextFull4;
     private rojeru_san.RSMTextFull rSMTextFull5;
-    private rojeru_san.RSMTextFull rSMTextFull6;
+    private rojeru_san.RSMTextFull tuEmail;
     // End of variables declaration//GEN-END:variables
 }

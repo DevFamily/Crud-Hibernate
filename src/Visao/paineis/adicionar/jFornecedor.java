@@ -45,8 +45,8 @@ public class jFornecedor extends javax.swing.JFrame {
         rSButton1 = new rojeru_san.RSButton();
         rSButton2 = new rojeru_san.RSButton();
         jLabel5 = new javax.swing.JLabel();
-        rSMTextFull5 = new rojeru_san.RSMTextFull();
-        jLabel8 = new javax.swing.JLabel();
+        tfEmail = new rojeru_san.RSMTextFull();
+        jlFornecedor = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -134,15 +134,19 @@ public class jFornecedor extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel5.setText("Email");
 
-        rSMTextFull5.setBackground(new java.awt.Color(204, 204, 204));
-        rSMTextFull5.setForeground(new java.awt.Color(255, 255, 255));
-        rSMTextFull5.setBordeColorFocus(new java.awt.Color(0, 0, 0));
-        rSMTextFull5.setBotonColor(new java.awt.Color(0, 0, 0));
-        rSMTextFull5.setPlaceholder("");
+        tfEmail.setBackground(new java.awt.Color(204, 204, 204));
+        tfEmail.setForeground(new java.awt.Color(255, 255, 255));
+        tfEmail.setBordeColorFocus(new java.awt.Color(0, 0, 0));
+        tfEmail.setBotonColor(new java.awt.Color(0, 0, 0));
+        tfEmail.setPlaceholder("");
+        tfEmail.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tfEmailFocusLost(evt);
+            }
+        });
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel8.setText("Preencher todos os Campos!");
+        jlFornecedor.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jlFornecedor.setForeground(new java.awt.Color(204, 0, 0));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -176,9 +180,9 @@ public class jFornecedor extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(rSMTextFull4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(rSMTextFull5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(tfEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jlFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, Short.MAX_VALUE)))))
                         .addGap(20, 20, 20))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -212,9 +216,9 @@ public class jFornecedor extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(rSMTextFull5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(tfEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel8)
+                .addComponent(jlFornecedor)
                 .addGap(11, 11, 11)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rSButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -231,6 +235,40 @@ public class jFornecedor extends javax.swing.JFrame {
        this.dispose();
     }//GEN-LAST:event_rSButton2ActionPerformed
 
+    private void tfEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfEmailFocusLost
+         if ((tfEmail.getText().contains("@")) && 
+(tfEmail.getText().contains(".")) && 
+(!tfEmail.getText().contains(" "))) {
+ 
+String usuario = new String(tfEmail.getText().substring(0, 
+tfEmail.getText().lastIndexOf('@')));
+ 
+            String dominio = new String(tfEmail.getText().substring(tfEmail.getText().lastIndexOf
+('@') + 1, tfEmail.getText().length()));
+ 
+            if ((usuario.length() >=1) && (!usuario.contains("@")) && 
+(dominio.contains(".")) && (!dominio.contains("@")) && (dominio.indexOf(".") >= 
+1) && (dominio.lastIndexOf(".") < dominio.length() - 1)) {
+ 
+            jlFornecedor.setText("");
+ 
+            } else {
+ 
+               jlFornecedor.setText("E-mail Inválido");
+ 
+                jlFornecedor.requestFocus();
+ 
+            }
+ 
+        } else {
+ 
+            jlFornecedor.setText("E-mail Inválido");
+ 
+           jlFornecedor.requestFocus();
+ 
+        }
+    }//GEN-LAST:event_tfEmailFocusLost
+
     /**
      * @param args the command line arguments
      */
@@ -244,15 +282,15 @@ public class jFornecedor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel jlFornecedor;
     private rojeru_san.RSButton rSButton1;
     private rojeru_san.RSButton rSButton2;
     private rojeru_san.RSMTextFull rSMTextFull1;
     private rojeru_san.RSMTextFull rSMTextFull2;
     private rojeru_san.RSMTextFull rSMTextFull3;
     private rojeru_san.RSMTextFull rSMTextFull4;
-    private rojeru_san.RSMTextFull rSMTextFull5;
+    private rojeru_san.RSMTextFull tfEmail;
     // End of variables declaration//GEN-END:variables
 }
