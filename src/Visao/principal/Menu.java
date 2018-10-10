@@ -29,7 +29,6 @@ public class Menu extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         rSPanelGradiente1 = new rspanelgradiente.RSPanelGradiente();
         rSPanelImage1 = new rojerusan.RSPanelImage();
@@ -43,7 +42,13 @@ public class Menu extends javax.swing.JFrame {
         btSobre = new rojerusan.RSButtonIconI();
         pnlSlider = new rojeru_san.RSPanelsSlider();
         pnlInicio1 = new Visao.paineis.pnlInicio();
+        pnlVendas1 = new Visao.paineis.pnlVendas();
         pnlClientes1 = new Visao.paineis.pnlClientes();
+        pnlFornecedores1 = new Visao.paineis.PnlFornecedores();
+        pnlEstoque1 = new Visao.paineis.pnlEstoque();
+        pnlUsuarios1 = new Visao.paineis.pnlUsuarios();
+        pnlConfiguracoes1 = new Visao.paineis.pnlConfiguracoes();
+        pnlSobre1 = new Visao.paineis.pnlSobre();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,6 +73,11 @@ public class Menu extends javax.swing.JFrame {
         btVendas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Visao/imagens/Sell Stock_50px.png"))); // NOI18N
         btVendas.setText("VENDAS");
         btVendas.setColorHover(new java.awt.Color(102, 102, 102));
+        btVendas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btVendasActionPerformed(evt);
+            }
+        });
 
         btInicio.setBackground(new java.awt.Color(0, 102, 102));
         btInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Visao/imagens/Home_50px.png"))); // NOI18N
@@ -95,26 +105,51 @@ public class Menu extends javax.swing.JFrame {
         btFornecedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Visao/imagens/Delivery_50px.png"))); // NOI18N
         btFornecedores.setText("FORNECEDORES");
         btFornecedores.setColorHover(new java.awt.Color(102, 102, 102));
+        btFornecedores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btFornecedoresActionPerformed(evt);
+            }
+        });
 
         btEstoque.setBackground(new java.awt.Color(0, 102, 102));
         btEstoque.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Visao/imagens/Trolley_50px.png"))); // NOI18N
         btEstoque.setText("ESTOQUE");
         btEstoque.setColorHover(new java.awt.Color(102, 102, 102));
+        btEstoque.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEstoqueActionPerformed(evt);
+            }
+        });
 
         btUsuarios.setBackground(new java.awt.Color(0, 102, 102));
         btUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Visao/imagens/User Account_100px.png"))); // NOI18N
         btUsuarios.setText("USUÁRIOS");
         btUsuarios.setColorHover(new java.awt.Color(102, 102, 102));
+        btUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btUsuariosActionPerformed(evt);
+            }
+        });
 
         btConfiguraoes.setBackground(new java.awt.Color(0, 102, 102));
         btConfiguraoes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Visao/imagens/Settings_50px.png"))); // NOI18N
         btConfiguraoes.setText("CONFIGURAÇÕES");
         btConfiguraoes.setColorHover(new java.awt.Color(102, 102, 102));
+        btConfiguraoes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btConfiguraoesActionPerformed(evt);
+            }
+        });
 
         btSobre.setBackground(new java.awt.Color(0, 102, 102));
         btSobre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Visao/imagens/About_50px.png"))); // NOI18N
         btSobre.setText("SOBRE NÓS");
         btSobre.setColorHover(new java.awt.Color(102, 102, 102));
+        btSobre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSobreActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout rSPanelGradiente1Layout = new javax.swing.GroupLayout(rSPanelGradiente1);
         rSPanelGradiente1.setLayout(rSPanelGradiente1Layout);
@@ -158,8 +193,26 @@ public class Menu extends javax.swing.JFrame {
         pnlInicio1.setName("pnlInicio1"); // NOI18N
         pnlSlider.add(pnlInicio1, "card2");
 
+        pnlVendas1.setName("pnlVendas1"); // NOI18N
+        pnlSlider.add(pnlVendas1, "card5");
+
         pnlClientes1.setName("pnlClientes1"); // NOI18N
         pnlSlider.add(pnlClientes1, "card3");
+
+        pnlFornecedores1.setName("pnlFornecedores1"); // NOI18N
+        pnlSlider.add(pnlFornecedores1, "card4");
+
+        pnlEstoque1.setName("pnlEstoque1"); // NOI18N
+        pnlSlider.add(pnlEstoque1, "card6");
+
+        pnlUsuarios1.setName("pnlUsuarios1"); // NOI18N
+        pnlSlider.add(pnlUsuarios1, "card7");
+
+        pnlConfiguracoes1.setName("pnlConfiguracoes1"); // NOI18N
+        pnlSlider.add(pnlConfiguracoes1, "card8");
+
+        pnlSobre1.setName("pnlSobre1"); // NOI18N
+        pnlSlider.add(pnlSobre1, "card9");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -173,7 +226,7 @@ public class Menu extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(rSPanelGradiente1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(pnlSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlSlider, javax.swing.GroupLayout.DEFAULT_SIZE, 693, Short.MAX_VALUE)
         );
 
         pack();
@@ -208,6 +261,96 @@ public class Menu extends javax.swing.JFrame {
             pnlSlider.setPanelSlider(1, pnlClientes1, rojeru_san.RSPanelsSlider.DIRECT.RIGHT);
         }
     }//GEN-LAST:event_btClientesActionPerformed
+
+    private void btFornecedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFornecedoresActionPerformed
+      if(!btFornecedores.isSelected()){
+            btInicio.setSelected(false);
+            btVendas.setSelected(false);
+            btEstoque.setSelected(false);
+            btFornecedores.setSelected( true);
+            btClientes.setSelected(false);
+            btSobre.setSelected(false);
+            btUsuarios.setSelected(false);
+            btConfiguraoes.setSelected(false);
+            
+            pnlSlider.setPanelSlider(1, pnlFornecedores1, rojeru_san.RSPanelsSlider.DIRECT.RIGHT);
+        }
+    }//GEN-LAST:event_btFornecedoresActionPerformed
+
+    private void btVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVendasActionPerformed
+       if(!btVendas.isSelected()){
+            btInicio.setSelected(false);
+            btVendas.setSelected(true);
+            btEstoque.setSelected(false);
+            btFornecedores.setSelected( false);
+            btClientes.setSelected(false);
+            btSobre.setSelected(false);
+            btUsuarios.setSelected(false);
+            btConfiguraoes.setSelected(false);
+            
+            pnlSlider.setPanelSlider(1, pnlVendas1, rojeru_san.RSPanelsSlider.DIRECT.RIGHT);
+        }
+    }//GEN-LAST:event_btVendasActionPerformed
+
+    private void btEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEstoqueActionPerformed
+         if(!btEstoque.isSelected()){
+            btInicio.setSelected(false);
+            btVendas.setSelected(false);
+            btEstoque.setSelected(true);
+            btFornecedores.setSelected( false);
+            btClientes.setSelected(false);
+            btSobre.setSelected(false);
+            btUsuarios.setSelected(false);
+            btConfiguraoes.setSelected(false);
+            
+            pnlSlider.setPanelSlider(1, pnlEstoque1, rojeru_san.RSPanelsSlider.DIRECT.RIGHT);
+        }
+    }//GEN-LAST:event_btEstoqueActionPerformed
+
+    private void btUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btUsuariosActionPerformed
+       if(!btUsuarios.isSelected()){
+            btInicio.setSelected(false);
+            btVendas.setSelected(false);
+            btEstoque.setSelected(false);
+            btFornecedores.setSelected( false);
+            btClientes.setSelected(false);
+            btSobre.setSelected(false);
+            btUsuarios.setSelected(true);
+            btConfiguraoes.setSelected(false);
+            
+            pnlSlider.setPanelSlider(1, pnlUsuarios1, rojeru_san.RSPanelsSlider.DIRECT.RIGHT);
+        }
+    }//GEN-LAST:event_btUsuariosActionPerformed
+
+    private void btConfiguraoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConfiguraoesActionPerformed
+       if(!btConfiguraoes.isSelected()){
+            btInicio.setSelected(false);
+            btVendas.setSelected(false);
+            btEstoque.setSelected(false);
+            btFornecedores.setSelected( false);
+            btClientes.setSelected(false);
+            btSobre.setSelected(false);
+            btUsuarios.setSelected(false);
+            btConfiguraoes.setSelected(true);
+            
+            pnlSlider.setPanelSlider(1, pnlConfiguracoes1, rojeru_san.RSPanelsSlider.DIRECT.RIGHT);
+        }
+    }//GEN-LAST:event_btConfiguraoesActionPerformed
+
+    private void btSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSobreActionPerformed
+        if(!btSobre.isSelected()){
+            btInicio.setSelected(false);
+            btVendas.setSelected(false);
+            btEstoque.setSelected(false);
+            btFornecedores.setSelected( false);
+            btClientes.setSelected(false);
+            btSobre.setSelected(true);
+            btUsuarios.setSelected(false);
+            btConfiguraoes.setSelected(false);
+            
+            pnlSlider.setPanelSlider(1, pnlSobre1, rojeru_san.RSPanelsSlider.DIRECT.RIGHT);
+        }
+    }//GEN-LAST:event_btSobreActionPerformed
 
     /**
      * @param args the command line arguments
@@ -254,8 +397,14 @@ public class Menu extends javax.swing.JFrame {
     private rojerusan.RSButtonIconI btUsuarios;
     private rojerusan.RSButtonIconI btVendas;
     private Visao.paineis.pnlClientes pnlClientes1;
+    private Visao.paineis.pnlConfiguracoes pnlConfiguracoes1;
+    private Visao.paineis.pnlEstoque pnlEstoque1;
+    private Visao.paineis.PnlFornecedores pnlFornecedores1;
     private Visao.paineis.pnlInicio pnlInicio1;
     private rojeru_san.RSPanelsSlider pnlSlider;
+    private Visao.paineis.pnlSobre pnlSobre1;
+    private Visao.paineis.pnlUsuarios pnlUsuarios1;
+    private Visao.paineis.pnlVendas pnlVendas1;
     private rspanelgradiente.RSPanelGradiente rSPanelGradiente1;
     private rojerusan.RSPanelImage rSPanelImage1;
     // End of variables declaration//GEN-END:variables

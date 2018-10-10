@@ -18,7 +18,6 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,-118,0,0,3,-10"/>
   </AuxValues>
 
   <Layout>
@@ -34,7 +33,7 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="rSPanelGradiente1" max="32767" attributes="0"/>
-          <Component id="pnlSlider" max="32767" attributes="0"/>
+          <Component id="pnlSlider" pref="693" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -125,6 +124,9 @@
               <Color blue="66" green="66" red="66" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btVendasActionPerformed"/>
+          </Events>
         </Component>
         <Component class="rojerusan.RSButtonIconI" name="btInicio">
           <Properties>
@@ -175,6 +177,9 @@
               <Color blue="66" green="66" red="66" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btFornecedoresActionPerformed"/>
+          </Events>
         </Component>
         <Component class="rojerusan.RSButtonIconI" name="btEstoque">
           <Properties>
@@ -189,6 +194,9 @@
               <Color blue="66" green="66" red="66" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btEstoqueActionPerformed"/>
+          </Events>
         </Component>
         <Component class="rojerusan.RSButtonIconI" name="btUsuarios">
           <Properties>
@@ -203,6 +211,9 @@
               <Color blue="66" green="66" red="66" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btUsuariosActionPerformed"/>
+          </Events>
         </Component>
         <Component class="rojerusan.RSButtonIconI" name="btConfiguraoes">
           <Properties>
@@ -217,6 +228,9 @@
               <Color blue="66" green="66" red="66" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btConfiguraoesActionPerformed"/>
+          </Events>
         </Component>
         <Component class="rojerusan.RSButtonIconI" name="btSobre">
           <Properties>
@@ -231,6 +245,9 @@
               <Color blue="66" green="66" red="66" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btSobreActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -253,6 +270,16 @@
             </Constraint>
           </Constraints>
         </Component>
+        <Component class="Visao.paineis.pnlVendas" name="pnlVendas1">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="pnlVendas1" noResource="true"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+              <CardConstraints cardName="card5"/>
+            </Constraint>
+          </Constraints>
+        </Component>
         <Component class="Visao.paineis.pnlClientes" name="pnlClientes1">
           <Properties>
             <Property name="name" type="java.lang.String" value="pnlClientes1" noResource="true"/>
@@ -260,6 +287,56 @@
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
               <CardConstraints cardName="card3"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="Visao.paineis.PnlFornecedores" name="pnlFornecedores1">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="pnlFornecedores1" noResource="true"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+              <CardConstraints cardName="card4"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="Visao.paineis.pnlEstoque" name="pnlEstoque1">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="pnlEstoque1" noResource="true"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+              <CardConstraints cardName="card6"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="Visao.paineis.pnlUsuarios" name="pnlUsuarios1">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="pnlUsuarios1" noResource="true"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+              <CardConstraints cardName="card7"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="Visao.paineis.pnlConfiguracoes" name="pnlConfiguracoes1">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="pnlConfiguracoes1" noResource="true"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+              <CardConstraints cardName="card8"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="Visao.paineis.pnlSobre" name="pnlSobre1">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="pnlSobre1" noResource="true"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+              <CardConstraints cardName="card9"/>
             </Constraint>
           </Constraints>
         </Component>
