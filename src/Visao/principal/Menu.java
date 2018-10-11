@@ -5,6 +5,7 @@
  */
 package Visao.principal;
 
+import java.awt.Toolkit;
 import rojerusan.RSPanelsSlider;
 
 /**
@@ -18,6 +19,7 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() {
         initComponents();
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("nt.png")));
         rsutilities.RSUtilities.setCentrarVentana(this);
     }
 
