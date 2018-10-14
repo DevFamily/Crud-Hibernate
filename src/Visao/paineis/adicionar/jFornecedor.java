@@ -5,6 +5,8 @@
  */
 package Visao.paineis.adicionar;
 
+import Controle.Fornecedor;
+
 /**
  *
  * @author Tomas Mufume
@@ -34,18 +36,16 @@ public class jFornecedor extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        rSMTextFull1 = new rojeru_san.RSMTextFull();
-        rSMTextFull2 = new rojeru_san.RSMTextFull();
-        rSMTextFull3 = new rojeru_san.RSMTextFull();
-        rSMTextFull4 = new rojeru_san.RSMTextFull();
-        jLabel1 = new javax.swing.JLabel();
+        txtnomeFornecedor = new rojeru_san.RSMTextFull();
+        txtMorada = new rojeru_san.RSMTextFull();
+        txtTelefone = new rojeru_san.RSMTextFull();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        rSButton1 = new rojeru_san.RSButton();
+        btnAddFornecedor = new rojeru_san.RSButton();
         rSButton2 = new rojeru_san.RSButton();
         jLabel5 = new javax.swing.JLabel();
-        tfEmail = new rojeru_san.RSMTextFull();
+        txtEmail = new rojeru_san.RSMTextFull();
         jlFornecedor = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -82,33 +82,23 @@ public class jFornecedor extends javax.swing.JFrame {
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
-        rSMTextFull1.setBackground(new java.awt.Color(204, 204, 204));
-        rSMTextFull1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
-        rSMTextFull1.setForeground(new java.awt.Color(255, 255, 255));
-        rSMTextFull1.setBordeColorFocus(new java.awt.Color(0, 0, 0));
-        rSMTextFull1.setBotonColor(new java.awt.Color(0, 0, 0));
-        rSMTextFull1.setPlaceholder("");
+        txtnomeFornecedor.setBackground(new java.awt.Color(204, 204, 204));
+        txtnomeFornecedor.setForeground(new java.awt.Color(255, 255, 255));
+        txtnomeFornecedor.setBordeColorFocus(new java.awt.Color(0, 0, 0));
+        txtnomeFornecedor.setBotonColor(new java.awt.Color(0, 0, 0));
+        txtnomeFornecedor.setPlaceholder("");
 
-        rSMTextFull2.setBackground(new java.awt.Color(204, 204, 204));
-        rSMTextFull2.setForeground(new java.awt.Color(255, 255, 255));
-        rSMTextFull2.setBordeColorFocus(new java.awt.Color(0, 0, 0));
-        rSMTextFull2.setBotonColor(new java.awt.Color(0, 0, 0));
-        rSMTextFull2.setPlaceholder("");
+        txtMorada.setBackground(new java.awt.Color(204, 204, 204));
+        txtMorada.setForeground(new java.awt.Color(255, 255, 255));
+        txtMorada.setBordeColorFocus(new java.awt.Color(0, 0, 0));
+        txtMorada.setBotonColor(new java.awt.Color(0, 0, 0));
+        txtMorada.setPlaceholder("");
 
-        rSMTextFull3.setBackground(new java.awt.Color(204, 204, 204));
-        rSMTextFull3.setForeground(new java.awt.Color(255, 255, 255));
-        rSMTextFull3.setBordeColorFocus(new java.awt.Color(0, 0, 0));
-        rSMTextFull3.setBotonColor(new java.awt.Color(0, 0, 0));
-        rSMTextFull3.setPlaceholder("");
-
-        rSMTextFull4.setBackground(new java.awt.Color(204, 204, 204));
-        rSMTextFull4.setForeground(new java.awt.Color(255, 255, 255));
-        rSMTextFull4.setBordeColorFocus(new java.awt.Color(0, 0, 0));
-        rSMTextFull4.setBotonColor(new java.awt.Color(0, 0, 0));
-        rSMTextFull4.setPlaceholder("");
-
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel1.setText("Código");
+        txtTelefone.setBackground(new java.awt.Color(204, 204, 204));
+        txtTelefone.setForeground(new java.awt.Color(255, 255, 255));
+        txtTelefone.setBordeColorFocus(new java.awt.Color(0, 0, 0));
+        txtTelefone.setBotonColor(new java.awt.Color(0, 0, 0));
+        txtTelefone.setPlaceholder("");
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel3.setText("Nome");
@@ -119,8 +109,13 @@ public class jFornecedor extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel4.setText("Telefone");
 
-        rSButton1.setBackground(new java.awt.Color(102, 102, 102));
-        rSButton1.setText("Adicionar");
+        btnAddFornecedor.setBackground(new java.awt.Color(102, 102, 102));
+        btnAddFornecedor.setText("Adicionar");
+        btnAddFornecedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddFornecedorActionPerformed(evt);
+            }
+        });
 
         rSButton2.setBackground(new java.awt.Color(102, 102, 102));
         rSButton2.setText("Cancelar");
@@ -134,14 +129,14 @@ public class jFornecedor extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel5.setText("Email");
 
-        tfEmail.setBackground(new java.awt.Color(204, 204, 204));
-        tfEmail.setForeground(new java.awt.Color(255, 255, 255));
-        tfEmail.setBordeColorFocus(new java.awt.Color(0, 0, 0));
-        tfEmail.setBotonColor(new java.awt.Color(0, 0, 0));
-        tfEmail.setPlaceholder("");
-        tfEmail.addFocusListener(new java.awt.event.FocusAdapter() {
+        txtEmail.setBackground(new java.awt.Color(204, 204, 204));
+        txtEmail.setForeground(new java.awt.Color(255, 255, 255));
+        txtEmail.setBordeColorFocus(new java.awt.Color(0, 0, 0));
+        txtEmail.setBotonColor(new java.awt.Color(0, 0, 0));
+        txtEmail.setPlaceholder("");
+        txtEmail.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                tfEmailFocusLost(evt);
+                txtEmailFocusLost(evt);
             }
         });
 
@@ -159,35 +154,28 @@ public class jFornecedor extends javax.swing.JFrame {
                         .addGap(29, 29, 29)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGap(10, 10, 10))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)))
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(rSMTextFull2, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(rSMTextFull1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                                .addComponent(txtnomeFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(rSMTextFull3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(txtMorada, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(rSMTextFull4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(tfEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtTelefone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jlFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, Short.MAX_VALUE)))))
                         .addGap(20, 20, 20))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
-                        .addComponent(rSButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAddFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(62, 62, 62)
                         .addComponent(rSButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -197,31 +185,27 @@ public class jFornecedor extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rSMTextFull1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(66, 66, 66)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(rSMTextFull2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtnomeFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rSMTextFull3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtMorada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rSMTextFull4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(txtTelefone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(tfEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(jlFornecedor)
                 .addGap(11, 11, 11)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rSButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAddFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(rSButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21))
         );
@@ -235,16 +219,16 @@ public class jFornecedor extends javax.swing.JFrame {
        this.dispose();
     }//GEN-LAST:event_rSButton2ActionPerformed
 
-    private void tfEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfEmailFocusLost
-         if ((tfEmail.getText().contains("@")) && 
-(tfEmail.getText().contains(".")) && 
-(!tfEmail.getText().contains(" "))) {
+    private void txtEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailFocusLost
+         if ((txtEmail.getText().contains("@")) && 
+(txtEmail.getText().contains(".")) && 
+(!txtEmail.getText().contains(" "))) {
  
-String usuario = new String(tfEmail.getText().substring(0, 
-tfEmail.getText().lastIndexOf('@')));
+String usuario = new String(txtEmail.getText().substring(0, 
+txtEmail.getText().lastIndexOf('@')));
  
-            String dominio = new String(tfEmail.getText().substring(tfEmail.getText().lastIndexOf
-('@') + 1, tfEmail.getText().length()));
+            String dominio = new String(txtEmail.getText().substring(txtEmail.getText().lastIndexOf
+('@') + 1, txtEmail.getText().length()));
  
             if ((usuario.length() >=1) && (!usuario.contains("@")) && 
 (dominio.contains(".")) && (!dominio.contains("@")) && (dominio.indexOf(".") >= 
@@ -267,7 +251,22 @@ tfEmail.getText().lastIndexOf('@')));
            jlFornecedor.requestFocus();
  
         }
-    }//GEN-LAST:event_tfEmailFocusLost
+    }//GEN-LAST:event_txtEmailFocusLost
+
+    private void btnAddFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddFornecedorActionPerformed
+       String nome = txtnomeFornecedor.getText();
+       String morada = txtMorada.getText();
+       int cel = Integer.parseInt(txtTelefone.getText());
+       String email = txtEmail.getText();
+       
+       Fornecedor f = new Fornecedor();
+       f.setNomeFornecedor(nome);
+       f.setMoradaFornecedor(morada);
+       f.setContactoFornecedor(cel);
+       f.setEmailFornecedor(email);
+       f.armazenar();
+       this.dispose();
+    }//GEN-LAST:event_btnAddFornecedorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -275,7 +274,7 @@ tfEmail.getText().lastIndexOf('@')));
  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private rojeru_san.RSButton btnAddFornecedor;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -285,12 +284,10 @@ tfEmail.getText().lastIndexOf('@')));
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel jlFornecedor;
-    private rojeru_san.RSButton rSButton1;
     private rojeru_san.RSButton rSButton2;
-    private rojeru_san.RSMTextFull rSMTextFull1;
-    private rojeru_san.RSMTextFull rSMTextFull2;
-    private rojeru_san.RSMTextFull rSMTextFull3;
-    private rojeru_san.RSMTextFull rSMTextFull4;
-    private rojeru_san.RSMTextFull tfEmail;
+    private rojeru_san.RSMTextFull txtEmail;
+    private rojeru_san.RSMTextFull txtMorada;
+    private rojeru_san.RSMTextFull txtTelefone;
+    private rojeru_san.RSMTextFull txtnomeFornecedor;
     // End of variables declaration//GEN-END:variables
 }

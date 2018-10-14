@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 14, 2018 6:36:58 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Controle.Fornecedor" table="fornecedor" catalog="tchikupene" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="nomeFornecedor" type="string">
+            <column name="nome_fornecedor" length="100" not-null="true" />
+        </property>
+        <property name="moradaFornecedor" type="string">
+            <column name="morada_fornecedor" length="250" not-null="true" />
+        </property>
+        <property name="contactoFornecedor" type="int">
+            <column name="contacto_fornecedor" not-null="true" unique="true" />
+        </property>
+        <property name="emailFornecedor" type="string">
+            <column name="email_fornecedor" length="45" not-null="true" unique="true" />
+        </property>
+    </class>
+</hibernate-mapping>
