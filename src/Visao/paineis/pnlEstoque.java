@@ -132,11 +132,11 @@ public class pnlEstoque extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Código", "Produto", "Quantidade", "Tipo de Produto", "Preço de Compra", "Preço de Venda", "Fornecedor", "Data"
+                "Código", "Produto", "Quantidade", "Tipo de Produto", "Preço de Compra", "Preço de Venda", "Fornecedor", "Data", "Total de Compras", "Total de Vendas"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, true, false, false, true
+                true, true, true, true, true, true, true, true, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
