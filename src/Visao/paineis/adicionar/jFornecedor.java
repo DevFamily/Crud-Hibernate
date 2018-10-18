@@ -5,7 +5,7 @@
  */
 package Visao.paineis.adicionar;
 
-import Controle.Fornecedor;
+
 
 /**
  *
@@ -254,18 +254,7 @@ txtEmail.getText().lastIndexOf('@')));
     }//GEN-LAST:event_txtEmailFocusLost
 
     private void btnAddFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddFornecedorActionPerformed
-       String nome = txtnomeFornecedor.getText();
-       String morada = txtMorada.getText();
-       int cel = Integer.parseInt(txtTelefone.getText());
-       String email = txtEmail.getText();
        
-       Fornecedor f = new Fornecedor();
-       f.setNomeFornecedor(nome);
-       f.setMoradaFornecedor(morada);
-       f.setContactoFornecedor(cel);
-       f.setEmailFornecedor(email);
-       f.armazenar();
-       this.dispose();
     }//GEN-LAST:event_btnAddFornecedorActionPerformed
 
     /**
