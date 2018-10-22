@@ -7,6 +7,7 @@ package Visao.paineis.adicionar;
 
 import Controle.UsuarioDao;
 import javax.swing.JOptionPane;
+import Visao.paineis.pnlUsuarios;
 
 /**
  *
@@ -19,10 +20,13 @@ public class jUsuario extends javax.swing.JFrame {
      */
     public jUsuario() {
         initComponents();
+       // Lista();
          this.setLocationRelativeTo(null);
          
          
+         
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -219,6 +223,7 @@ public class jUsuario extends javax.swing.JFrame {
        int  contato = Integer.parseInt(txtContacto.getText());
     if(UsuarioDao.criarUsuario(txtUsuario.getText(),txtNome.getText(),txtMorada.getText(),contato,txtEmail.getText(),cbAcesso.getSelectedItem().toString())) {
         JOptionPane.showMessageDialog(null,"Usuario salvo com sucesso");
+      //  Lista();
     }  else{
          JOptionPane.showMessageDialog(null,"Erro ao salvar usuario");
     }

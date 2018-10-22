@@ -7,6 +7,7 @@ package Controle;
 
 import Modelo.HibernateUtil;
 import Modelo.Usuario;
+import java.util.List;
 import org.hibernate.Session;
 
 /**
@@ -35,8 +36,13 @@ public class UsuarioDao {
             return false;
         }
         
+      
+   }
+    
+    public static List<Usuario> ListarUsuarios(){
+        Session sessao = HibernateUtil.getSessionFactory().openSession();
+        List<Usuario> usuarios = sessao.createCriteria(Usuario.class).list();
+        return usuarios;
         
-    
-}
-    
+    }
 }

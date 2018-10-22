@@ -5,7 +5,14 @@
  */
 package Visao.paineis;
 
+import Controle.UsuarioDao;
+import Modelo.Usuario;
 import Visao.paineis.adicionar.jUsuario;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Vector;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -18,6 +25,29 @@ public class pnlUsuarios extends javax.swing.JPanel {
      */
     public pnlUsuarios() {
         initComponents();
+        Lista();
+    }
+    
+    void Lista(){
+        List<Usuario> usuarios = UsuarioDao.ListarUsuarios();
+        if(usuarios.size()>0){
+            Iterator consulta = usuarios.iterator();
+            while(consulta.hasNext()){
+                DefaultTableModel tabela = (DefaultTableModel)tblUsuarios.getModel();
+                Vector dados = new Vector();
+                Usuario fila = (Usuario)consulta.next();
+                dados.add(fila.getIdusuario());
+                dados.add(fila.getNUsuario());
+                dados.add(fila.getNome());
+                dados.add(fila.getMorada());
+                dados.add(fila.getContacto());
+                dados.add(fila.getEmail());
+                dados.add(fila.getNAcesso());
+                tabela.addRow(dados);
+            }
+        }else{
+            JOptionPane.showMessageDialog(null,"Não há Usuários Cadastrados!");
+        }
     }
 
     /**
@@ -34,7 +64,7 @@ public class pnlUsuarios extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        rSTableMetro1 = new rojerusan.RSTableMetro();
+        tblUsuarios = new rojerusan.RSTableMetro();
         jPanel3 = new javax.swing.JPanel();
         rSButton1 = new rojeru_san.RSButton();
         rSButton2 = new rojeru_san.RSButton();
@@ -85,7 +115,7 @@ public class pnlUsuarios extends javax.swing.JPanel {
 
         jScrollPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102), 2));
 
-        rSTableMetro1.setModel(new javax.swing.table.DefaultTableModel(
+        tblUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -101,14 +131,14 @@ public class pnlUsuarios extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        rSTableMetro1.setColorBackgoundHead(new java.awt.Color(102, 102, 102));
-        rSTableMetro1.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
-        rSTableMetro1.setColorFilasForeground1(new java.awt.Color(102, 102, 102));
-        rSTableMetro1.setColorFilasForeground2(new java.awt.Color(102, 102, 102));
-        rSTableMetro1.setColorSelBackgound(new java.awt.Color(102, 102, 102));
-        rSTableMetro1.setGrosorBordeFilas(0);
-        rSTableMetro1.setGrosorBordeHead(0);
-        jScrollPane1.setViewportView(rSTableMetro1);
+        tblUsuarios.setColorBackgoundHead(new java.awt.Color(102, 102, 102));
+        tblUsuarios.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
+        tblUsuarios.setColorFilasForeground1(new java.awt.Color(102, 102, 102));
+        tblUsuarios.setColorFilasForeground2(new java.awt.Color(102, 102, 102));
+        tblUsuarios.setColorSelBackgound(new java.awt.Color(102, 102, 102));
+        tblUsuarios.setGrosorBordeFilas(0);
+        tblUsuarios.setGrosorBordeHead(0);
+        jScrollPane1.setViewportView(tblUsuarios);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -217,6 +247,6 @@ public class pnlUsuarios extends javax.swing.JPanel {
     private rojeru_san.RSButton rSButton2;
     private rojeru_san.RSButton rSButton3;
     private rojeru_san.RSMTextFull rSMTextFull1;
-    private rojerusan.RSTableMetro rSTableMetro1;
+    private rojerusan.RSTableMetro tblUsuarios;
     // End of variables declaration//GEN-END:variables
 }
