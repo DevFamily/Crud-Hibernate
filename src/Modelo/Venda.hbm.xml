@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 22, 2018 11:39:58 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Modelo.Venda" table="venda" catalog="tchikupene" optimistic-lock="version">
+        <id name="idvenda" type="java.lang.Integer">
+            <column name="idvenda" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="cliente" class="Modelo.Cliente" fetch="select">
+            <column name="cliente_idcliente" not-null="true" />
+        </many-to-one>
+        <many-to-one name="produto" class="Modelo.Produto" fetch="select">
+            <column name="produto_idproduto" not-null="true" />
+        </many-to-one>
+        <many-to-one name="usuario" class="Modelo.Usuario" fetch="select">
+            <column name="usuario_idusuario" not-null="true" />
+        </many-to-one>
+        <property name="quantidade" type="int">
+            <column name="quantidade" not-null="true" />
+        </property>
+        <property name="PUnitario" type="double">
+            <column name="p_unitario" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="PTotal" type="double">
+            <column name="p_total" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="dataVenda" type="date">
+            <column name="data_venda" length="10" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

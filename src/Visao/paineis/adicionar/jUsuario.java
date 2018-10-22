@@ -5,6 +5,9 @@
  */
 package Visao.paineis.adicionar;
 
+import Controle.UsuarioDao;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Tomas Mufume
@@ -34,10 +37,6 @@ public class jUsuario extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        rSMTextFull1 = new rojeru_san.RSMTextFull();
-        rSMTextFull2 = new rojeru_san.RSMTextFull();
-        rSMTextFull3 = new rojeru_san.RSMTextFull();
-        rSMTextFull4 = new rojeru_san.RSMTextFull();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -45,21 +44,26 @@ public class jUsuario extends javax.swing.JFrame {
         rSButton1 = new rojeru_san.RSButton();
         rSButton2 = new rojeru_san.RSButton();
         jLabel5 = new javax.swing.JLabel();
-        rSMTextFull5 = new rojeru_san.RSMTextFull();
         jlUsuario = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        tuEmail = new rojeru_san.RSMTextFull();
+        txtUsuario = new rojeru_san.RSMTextFull();
+        txtNome = new rojeru_san.RSMTextFull();
+        txtMorada = new rojeru_san.RSMTextFull();
+        txtContacto = new rojeru_san.RSMTextFull();
+        txtEmail = new rojeru_san.RSMTextFull();
+        cbAcesso = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(255, 0, 102));
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel6.setText("Acicionar Novo Usuario");
+        jLabel6.setText("Acidionar Novo Usuario");
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Visao/imagens/Add New_50px.png"))); // NOI18N
 
@@ -81,48 +85,35 @@ public class jUsuario extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        rSMTextFull1.setBackground(new java.awt.Color(204, 204, 204));
-        rSMTextFull1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
-        rSMTextFull1.setForeground(new java.awt.Color(255, 255, 255));
-        rSMTextFull1.setBordeColorFocus(new java.awt.Color(0, 0, 0));
-        rSMTextFull1.setBotonColor(new java.awt.Color(0, 0, 0));
-        rSMTextFull1.setPlaceholder("");
-
-        rSMTextFull2.setBackground(new java.awt.Color(204, 204, 204));
-        rSMTextFull2.setForeground(new java.awt.Color(255, 255, 255));
-        rSMTextFull2.setBordeColorFocus(new java.awt.Color(0, 0, 0));
-        rSMTextFull2.setBotonColor(new java.awt.Color(0, 0, 0));
-        rSMTextFull2.setPlaceholder("");
-
-        rSMTextFull3.setBackground(new java.awt.Color(204, 204, 204));
-        rSMTextFull3.setForeground(new java.awt.Color(255, 255, 255));
-        rSMTextFull3.setBordeColorFocus(new java.awt.Color(0, 0, 0));
-        rSMTextFull3.setBotonColor(new java.awt.Color(0, 0, 0));
-        rSMTextFull3.setPlaceholder("");
-
-        rSMTextFull4.setBackground(new java.awt.Color(204, 204, 204));
-        rSMTextFull4.setForeground(new java.awt.Color(255, 255, 255));
-        rSMTextFull4.setBordeColorFocus(new java.awt.Color(0, 0, 0));
-        rSMTextFull4.setBotonColor(new java.awt.Color(0, 0, 0));
-        rSMTextFull4.setPlaceholder("");
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 419, -1));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel1.setText("Código");
+        jLabel1.setText("N. Acesso");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, 60, 42));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel3.setText("Usuario");
+        jLabel3.setText("Usuário");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 57, 49));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel2.setText("Nome");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 40, 42));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel4.setText("Morada");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 50, 42));
 
         rSButton1.setBackground(new java.awt.Color(102, 102, 102));
         rSButton1.setText("Adicionar");
+        rSButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(rSButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 439, 150, -1));
 
         rSButton2.setBackground(new java.awt.Color(102, 102, 102));
         rSButton2.setText("Cancelar");
@@ -132,126 +123,62 @@ public class jUsuario extends javax.swing.JFrame {
                 rSButton2ActionPerformed(evt);
             }
         });
+        jPanel1.add(rSButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(232, 439, 150, -1));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel5.setText("Contacto");
-
-        rSMTextFull5.setBackground(new java.awt.Color(204, 204, 204));
-        rSMTextFull5.setForeground(new java.awt.Color(255, 255, 255));
-        rSMTextFull5.setBordeColorFocus(new java.awt.Color(0, 0, 0));
-        rSMTextFull5.setBotonColor(new java.awt.Color(0, 0, 0));
-        rSMTextFull5.setPlaceholder("");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 60, 30));
 
         jlUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jlUsuario.setForeground(new java.awt.Color(204, 0, 0));
+        jPanel1.add(jlUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 428, 200, -1));
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel9.setText("Email");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 55, 29));
 
-        tuEmail.setBackground(new java.awt.Color(204, 204, 204));
-        tuEmail.setForeground(new java.awt.Color(255, 255, 255));
-        tuEmail.setBordeColorFocus(new java.awt.Color(0, 0, 0));
-        tuEmail.setBotonColor(new java.awt.Color(0, 0, 0));
-        tuEmail.setPlaceholder("");
-        tuEmail.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                tuEmailFocusLost(evt);
-            }
-        });
+        txtUsuario.setBackground(new java.awt.Color(204, 204, 204));
+        txtUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        txtUsuario.setBordeColorFocus(new java.awt.Color(0, 0, 0));
+        txtUsuario.setBotonColor(new java.awt.Color(0, 0, 0));
+        txtUsuario.setPlaceholder("");
+        jPanel1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 300, 40));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(100, 100, 100)
-                        .addComponent(jlUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(rSButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(62, 62, 62)
-                        .addComponent(rSButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(rSMTextFull1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(192, 192, 192))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(tuEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(18, 18, 18))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(18, 18, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(rSMTextFull4, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(rSMTextFull2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
-                                        .addComponent(rSMTextFull3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rSMTextFull5, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(9, 9, 9)))
-                .addGap(44, 44, 44))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rSMTextFull1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(rSMTextFull2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 22, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rSMTextFull3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rSMTextFull4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(rSMTextFull5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tuEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE))
-                .addGap(32, 32, 32)
-                .addComponent(jlUsuario)
-                .addGap(11, 11, 11)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rSButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rSButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21))
-        );
+        txtNome.setBackground(new java.awt.Color(204, 204, 204));
+        txtNome.setForeground(new java.awt.Color(255, 255, 255));
+        txtNome.setBordeColorFocus(new java.awt.Color(0, 0, 0));
+        txtNome.setBotonColor(new java.awt.Color(0, 0, 0));
+        txtNome.setPlaceholder("");
+        jPanel1.add(txtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 300, 40));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 500));
+        txtMorada.setBackground(new java.awt.Color(204, 204, 204));
+        txtMorada.setForeground(new java.awt.Color(255, 255, 255));
+        txtMorada.setBordeColorFocus(new java.awt.Color(0, 0, 0));
+        txtMorada.setBotonColor(new java.awt.Color(0, 0, 0));
+        txtMorada.setPlaceholder("");
+        jPanel1.add(txtMorada, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 300, 40));
+
+        txtContacto.setBackground(new java.awt.Color(204, 204, 204));
+        txtContacto.setForeground(new java.awt.Color(255, 255, 255));
+        txtContacto.setBordeColorFocus(new java.awt.Color(0, 0, 0));
+        txtContacto.setBotonColor(new java.awt.Color(0, 0, 0));
+        txtContacto.setPlaceholder("");
+        jPanel1.add(txtContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 300, 40));
+
+        txtEmail.setBackground(new java.awt.Color(204, 204, 204));
+        txtEmail.setForeground(new java.awt.Color(255, 255, 255));
+        txtEmail.setBordeColorFocus(new java.awt.Color(0, 0, 0));
+        txtEmail.setBotonColor(new java.awt.Color(0, 0, 0));
+        txtEmail.setPlaceholder("");
+        jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 300, 40));
+
+        cbAcesso.setBackground(new java.awt.Color(204, 204, 204));
+        cbAcesso.setEditable(true);
+        cbAcesso.setFont(new java.awt.Font("Nirmala UI Semilight", 1, 14)); // NOI18N
+        cbAcesso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Vendedor" }));
+        jPanel1.add(cbAcesso, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, 290, 40));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 490));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -260,43 +187,14 @@ public class jUsuario extends javax.swing.JFrame {
        this.dispose();
     }//GEN-LAST:event_rSButton2ActionPerformed
 
-    private void tuEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tuEmailFocusLost
-     if ((tuEmail.getText().contains("@")) && 
-(tuEmail.getText().contains(".")) && 
-(!tuEmail.getText().contains(" "))) {
- 
-String usuario = new String(tuEmail.getText().substring(0, 
-tuEmail.getText().lastIndexOf('@')));
- 
-            String dominio = new String(tuEmail.getText().substring(tuEmail.getText().lastIndexOf
-('@') + 1, tuEmail.getText().length()));
- 
-            if ((usuario.length() >=1) && (!usuario.contains("@")) && 
-(dominio.contains(".")) && (!dominio.contains("@")) && (dominio.indexOf(".") >= 
-1) && (dominio.lastIndexOf(".") < dominio.length() - 1)) {
- 
-            jlUsuario.setText("");
- 
-            } else {
- 
-               jlUsuario.setText("E-mail Inválido");
- 
-                jlUsuario.requestFocus();
- 
-            }
- 
-        } else {
- 
-            jlUsuario.setText("E-mail Inválido");
- 
-           jlUsuario.requestFocus();
- 
-        }
-    }//GEN-LAST:event_tuEmailFocusLost
+    private void rSButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButton1ActionPerformed
+       adicionar();
+    }//GEN-LAST:event_rSButton1ActionPerformed
 
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cbAcesso;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -310,11 +208,19 @@ tuEmail.getText().lastIndexOf('@')));
     private javax.swing.JLabel jlUsuario;
     private rojeru_san.RSButton rSButton1;
     private rojeru_san.RSButton rSButton2;
-    private rojeru_san.RSMTextFull rSMTextFull1;
-    private rojeru_san.RSMTextFull rSMTextFull2;
-    private rojeru_san.RSMTextFull rSMTextFull3;
-    private rojeru_san.RSMTextFull rSMTextFull4;
-    private rojeru_san.RSMTextFull rSMTextFull5;
-    private rojeru_san.RSMTextFull tuEmail;
+    private rojeru_san.RSMTextFull txtContacto;
+    private rojeru_san.RSMTextFull txtEmail;
+    private rojeru_san.RSMTextFull txtMorada;
+    private rojeru_san.RSMTextFull txtNome;
+    private rojeru_san.RSMTextFull txtUsuario;
     // End of variables declaration//GEN-END:variables
+
+    private void adicionar() {
+       int  contato = Integer.parseInt(txtContacto.getText());
+    if(UsuarioDao.criarUsuario(txtUsuario.getText(),txtNome.getText(),txtMorada.getText(),contato,txtEmail.getText(),cbAcesso.getSelectedItem().toString())) {
+        JOptionPane.showMessageDialog(null,"Usuario salvo com sucesso");
+    }  else{
+         JOptionPane.showMessageDialog(null,"Erro ao salvar usuario");
+    }
+    }
 }

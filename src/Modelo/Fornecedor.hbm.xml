@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 22, 2018 11:39:58 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Modelo.Fornecedor" table="fornecedor" catalog="tchikupene" optimistic-lock="version">
+        <id name="idfornecedor" type="java.lang.Integer">
+            <column name="idfornecedor" />
+            <generator class="identity" />
+        </id>
+        <property name="nome" type="string">
+            <column name="nome" length="45" not-null="true" />
+        </property>
+        <property name="morada" type="string">
+            <column name="morada" length="50" not-null="true" />
+        </property>
+        <property name="contacto" type="int">
+            <column name="contacto" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="45" not-null="true" />
+        </property>
+        <set name="produtos" table="produto" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fornecedor_idfornecedor" not-null="true" />
+            </key>
+            <one-to-many class="Modelo.Produto" />
+        </set>
+    </class>
+</hibernate-mapping>
