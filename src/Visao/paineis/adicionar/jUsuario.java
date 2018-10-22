@@ -20,7 +20,7 @@ public class jUsuario extends javax.swing.JFrame {
      */
     public jUsuario() {
         initComponents();
-       // Lista();
+       
          this.setLocationRelativeTo(null);
          
          

@@ -28,6 +28,12 @@ public class pnlUsuarios extends javax.swing.JPanel {
         Lista();
     }
     
+    void LimparLista(){
+        while(tblUsuarios.getRowCount()!=0){
+            ((DefaultTableModel)tblUsuarios.getModel()).removeRow(0);
+        }
+    }
+    
     void Lista(){
         List<Usuario> usuarios = UsuarioDao.ListarUsuarios();
         if(usuarios.size()>0){
