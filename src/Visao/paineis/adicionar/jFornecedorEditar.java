@@ -14,12 +14,12 @@ import javax.swing.JOptionPane;
  *
  * @author Tomas Mufume
  */
-public class jFornecedor extends javax.swing.JFrame {
+public class jFornecedorEditar extends javax.swing.JFrame {
 
     /**
      * Creates new form jCliente
      */
-    public jFornecedor() {
+    public jFornecedorEditar() {
         initComponents();
          this.setLocationRelativeTo(null);
          
@@ -204,7 +204,7 @@ txtEmail.getText().lastIndexOf('@')));
     }//GEN-LAST:event_txtEmailFocusLost
 
     private void btnAddFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddFornecedorActionPerformed
-adicionar();       
+      
     }//GEN-LAST:event_btnAddFornecedorActionPerformed
 
     /**
@@ -231,14 +231,4 @@ adicionar();
     // End of variables declaration//GEN-END:variables
     
 
-    private void adicionar() {
-        
-          int  contato = Integer.parseInt(txtTelefone.getText());
-    if(FornecedorDao.criarFornecedor(txtNome.getText(),txtMorada.getText(),contato,txtEmail.getText())) {
-        JOptionPane.showMessageDialog(null,"Fornecedor salvo com sucesso!");
-      //  Lista();
-    }  else{
-         JOptionPane.showMessageDialog(null,"Erro ao salvar Fornecedor!");
-    }
-    }
-}
+}         

@@ -5,8 +5,18 @@
  */
 package Visao.paineis;
 
+
+
+import Controle.FornecedorDao;
+import Modelo.Fornecedor;
 import Visao.paineis.adicionar.jFornecedor;
+import Visao.paineis.adicionar.jFornecedorEditar;
 import java.awt.Color;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Vector;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -19,8 +29,37 @@ public class PnlFornecedores extends javax.swing.JPanel {
      */
     public PnlFornecedores() {
         initComponents();
+        Lista();
         jScrollPane1.getViewport().setBackground(Color.white );
     }
+    
+    void LimparLista(){
+        while(tblFornecedor.getRowCount()!=0){
+            ((DefaultTableModel)tblFornecedor.getModel()).removeRow(0);
+        }
+    }
+    
+    void Lista(){
+        List<Fornecedor> fornecedor = FornecedorDao.ListarFornecedores();
+        if(fornecedor.size()>0){
+            Iterator consulta = fornecedor.iterator();
+            while(consulta.hasNext()){
+                DefaultTableModel tabela = (DefaultTableModel)tblFornecedor.getModel();
+                Vector dados = new Vector();
+                Fornecedor fila = (Fornecedor)consulta.next();
+                dados.add(fila.getIdfornecedor());
+                dados.add(fila.getNome());
+                dados.add(fila.getMorada());
+                dados.add(fila.getContacto());
+                dados.add(fila.getEmail());
+                tabela.addRow(dados);
+            }
+        }else{
+            JOptionPane.showMessageDialog(null,"Não há Fornecedores Cadastrados!");
+        }
+    }
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -36,10 +75,10 @@ public class PnlFornecedores extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        rSTableMetro1 = new rojerusan.RSTableMetro();
+        tblFornecedor = new rojerusan.RSTableMetro();
         jPanel2 = new javax.swing.JPanel();
-        rSButton1 = new rojeru_san.RSButton();
-        rSButton2 = new rojeru_san.RSButton();
+        btnNovo = new rojeru_san.RSButton();
+        btnActualizar = new rojeru_san.RSButton();
         rSButton3 = new rojeru_san.RSButton();
         rSMTextFull1 = new rojeru_san.RSMTextFull();
 
@@ -82,7 +121,7 @@ public class PnlFornecedores extends javax.swing.JPanel {
 
         jScrollPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102), 2));
 
-        rSTableMetro1.setModel(new javax.swing.table.DefaultTableModel(
+        tblFornecedor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -98,34 +137,39 @@ public class PnlFornecedores extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        rSTableMetro1.setColorBackgoundHead(new java.awt.Color(102, 102, 102));
-        rSTableMetro1.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
-        rSTableMetro1.setColorFilasForeground1(new java.awt.Color(102, 102, 102));
-        rSTableMetro1.setColorFilasForeground2(new java.awt.Color(102, 102, 102));
-        rSTableMetro1.setColorSelBackgound(new java.awt.Color(102, 102, 102));
-        rSTableMetro1.setGrosorBordeFilas(0);
-        rSTableMetro1.setGrosorBordeHead(0);
-        jScrollPane1.setViewportView(rSTableMetro1);
+        tblFornecedor.setColorBackgoundHead(new java.awt.Color(102, 102, 102));
+        tblFornecedor.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
+        tblFornecedor.setColorFilasForeground1(new java.awt.Color(102, 102, 102));
+        tblFornecedor.setColorFilasForeground2(new java.awt.Color(102, 102, 102));
+        tblFornecedor.setColorSelBackgound(new java.awt.Color(102, 102, 102));
+        tblFornecedor.setGrosorBordeFilas(0);
+        tblFornecedor.setGrosorBordeHead(0);
+        jScrollPane1.setViewportView(tblFornecedor);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        rSButton1.setBackground(new java.awt.Color(102, 102, 102));
-        rSButton1.setText("Novo Fornecedor");
-        rSButton1.setToolTipText("Nova Venda");
-        rSButton1.setColorHover(new java.awt.Color(51, 51, 51));
-        rSButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        rSButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnNovo.setBackground(new java.awt.Color(102, 102, 102));
+        btnNovo.setText("Novo Fornecedor");
+        btnNovo.setToolTipText("Nova Venda");
+        btnNovo.setColorHover(new java.awt.Color(51, 51, 51));
+        btnNovo.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rSButton1ActionPerformed(evt);
+                btnNovoActionPerformed(evt);
             }
         });
 
-        rSButton2.setBackground(new java.awt.Color(102, 102, 102));
-        rSButton2.setText("Cotação");
-        rSButton2.setColorHover(new java.awt.Color(51, 51, 51));
+        btnActualizar.setBackground(new java.awt.Color(102, 102, 102));
+        btnActualizar.setText("Actualizar");
+        btnActualizar.setColorHover(new java.awt.Color(51, 51, 51));
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
 
         rSButton3.setBackground(new java.awt.Color(102, 102, 102));
-        rSButton3.setText("Calendário");
+        rSButton3.setText("Remover");
         rSButton3.setColorHover(new java.awt.Color(51, 51, 51));
 
         rSMTextFull1.setBorder(null);
@@ -140,9 +184,9 @@ public class PnlFornecedores extends javax.swing.JPanel {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(rSButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(rSButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(rSButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)
@@ -154,8 +198,8 @@ public class PnlFornecedores extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rSButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rSButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(rSButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(rSMTextFull1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(2, 2, 2))
@@ -195,23 +239,28 @@ public class PnlFornecedores extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void rSButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButton1ActionPerformed
+    private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
         jFornecedor f  = new jFornecedor();
         f.setVisible(true);
-    }//GEN-LAST:event_rSButton1ActionPerformed
+    }//GEN-LAST:event_btnNovoActionPerformed
+
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+        jFornecedorEditar f  = new jFornecedorEditar();
+        f.setVisible(true);
+    }//GEN-LAST:event_btnActualizarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private rojeru_san.RSButton btnActualizar;
+    private rojeru_san.RSButton btnNovo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private rojeru_san.RSButton rSButton1;
-    private rojeru_san.RSButton rSButton2;
     private rojeru_san.RSButton rSButton3;
     private rojeru_san.RSMTextFull rSMTextFull1;
-    private rojerusan.RSTableMetro rSTableMetro1;
+    private rojerusan.RSTableMetro tblFornecedor;
     // End of variables declaration//GEN-END:variables
 }

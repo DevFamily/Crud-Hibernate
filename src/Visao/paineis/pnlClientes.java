@@ -5,7 +5,14 @@
  */
 package Visao.paineis;
 
+import Controle.ClienteDao;
+import Modelo.Cliente;
 import Visao.paineis.adicionar.jCliente;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Vector;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -18,7 +25,35 @@ public class pnlClientes extends javax.swing.JPanel {
      */
     public pnlClientes() {
         initComponents();
+        Lista();
     }
+    
+    void LimparLista(){
+        while(tblCliente.getRowCount()!=0){
+            ((DefaultTableModel)tblCliente.getModel()).removeRow(0);
+        }
+    }
+    
+    void Lista(){
+        List<Cliente> cliente = ClienteDao.ListarClientes();
+        if(cliente.size()>0){
+            Iterator consulta = cliente.iterator();
+            while(consulta.hasNext()){
+                DefaultTableModel tabela = (DefaultTableModel)tblCliente.getModel();
+                Vector dados = new Vector();
+                Cliente fila = (Cliente)consulta.next();
+                dados.add(fila.getIdcliente());
+                dados.add(fila.getNome());
+                dados.add(fila.getMorada());
+                dados.add(fila.getContacto());
+                dados.add(fila.getEmail());
+                tabela.addRow(dados);
+            }
+        }else{
+            JOptionPane.showMessageDialog(null,"Não há Clientes Cadastrados!");
+        }
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -33,10 +68,10 @@ public class pnlClientes extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        rSTableMetro1 = new rojerusan.RSTableMetro();
+        tblCliente = new rojerusan.RSTableMetro();
         nProduto = new rojeru_san.RSButton();
         rSButton2 = new rojeru_san.RSButton();
-        rSButton3 = new rojeru_san.RSButton();
+        btnExcluir = new rojeru_san.RSButton();
         rSButton4 = new rojeru_san.RSButton();
         rSMTextFull1 = new rojeru_san.RSMTextFull();
 
@@ -76,7 +111,7 @@ public class pnlClientes extends javax.swing.JPanel {
 
         jScrollPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102), 2));
 
-        rSTableMetro1.setModel(new javax.swing.table.DefaultTableModel(
+        tblCliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -92,14 +127,14 @@ public class pnlClientes extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        rSTableMetro1.setColorBackgoundHead(new java.awt.Color(102, 102, 102));
-        rSTableMetro1.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
-        rSTableMetro1.setColorFilasForeground1(new java.awt.Color(102, 102, 102));
-        rSTableMetro1.setColorFilasForeground2(new java.awt.Color(102, 102, 102));
-        rSTableMetro1.setColorSelBackgound(new java.awt.Color(102, 102, 102));
-        rSTableMetro1.setGrosorBordeFilas(0);
-        rSTableMetro1.setGrosorBordeHead(0);
-        jScrollPane1.setViewportView(rSTableMetro1);
+        tblCliente.setColorBackgoundHead(new java.awt.Color(102, 102, 102));
+        tblCliente.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
+        tblCliente.setColorFilasForeground1(new java.awt.Color(102, 102, 102));
+        tblCliente.setColorFilasForeground2(new java.awt.Color(102, 102, 102));
+        tblCliente.setColorSelBackgound(new java.awt.Color(102, 102, 102));
+        tblCliente.setGrosorBordeFilas(0);
+        tblCliente.setGrosorBordeHead(0);
+        jScrollPane1.setViewportView(tblCliente);
 
         nProduto.setBackground(new java.awt.Color(102, 102, 102));
         nProduto.setText("Adicionar");
@@ -116,9 +151,14 @@ public class pnlClientes extends javax.swing.JPanel {
         rSButton2.setText("Actualizar");
         rSButton2.setColorHover(new java.awt.Color(51, 51, 51));
 
-        rSButton3.setBackground(new java.awt.Color(102, 102, 102));
-        rSButton3.setText("Excluir");
-        rSButton3.setColorHover(new java.awt.Color(51, 51, 51));
+        btnExcluir.setBackground(new java.awt.Color(102, 102, 102));
+        btnExcluir.setText("Excluir");
+        btnExcluir.setColorHover(new java.awt.Color(51, 51, 51));
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
+            }
+        });
 
         rSButton4.setBackground(new java.awt.Color(102, 102, 102));
         rSButton4.setText("Imprimir");
@@ -144,7 +184,7 @@ public class pnlClientes extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(rSButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(rSButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(rSButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
@@ -159,7 +199,7 @@ public class pnlClientes extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(rSButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rSButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(rSButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(rSMTextFull1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -172,17 +212,21 @@ public class pnlClientes extends javax.swing.JPanel {
         c.setVisible(true);
     }//GEN-LAST:event_nProdutoActionPerformed
 
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+       
+    }//GEN-LAST:event_btnExcluirActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private rojeru_san.RSButton btnExcluir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private rojeru_san.RSButton nProduto;
     private rojeru_san.RSButton rSButton2;
-    private rojeru_san.RSButton rSButton3;
     private rojeru_san.RSButton rSButton4;
     private rojeru_san.RSMTextFull rSMTextFull1;
-    private rojerusan.RSTableMetro rSTableMetro1;
+    private rojerusan.RSTableMetro tblCliente;
     // End of variables declaration//GEN-END:variables
 }

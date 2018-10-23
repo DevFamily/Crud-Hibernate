@@ -67,7 +67,7 @@ public class jUsuario extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 0, 102));
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel6.setText("Acidionar Novo Usuario");
+        jLabel6.setText("Usuario");
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Visao/imagens/Add New_50px.png"))); // NOI18N
 
