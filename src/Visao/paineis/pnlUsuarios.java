@@ -5,10 +5,7 @@
  */
 package Visao.paineis;
 
-import static Controle.ClienteDao.eliminarCliente;
-import Controle.UsuarioDao;
-import static Controle.UsuarioDao.eliminarUsuario;
-import Modelo.Usuario;
+
 import Visao.paineis.adicionar.jUsuario;
 import java.util.Iterator;
 import java.util.List;
@@ -27,36 +24,10 @@ public class pnlUsuarios extends javax.swing.JPanel {
      */
     public pnlUsuarios() {
         initComponents();
-        Lista();
+        
     }
     
-    void LimparLista(){
-        while(tblUsuarios.getRowCount()!=0){
-            ((DefaultTableModel)tblUsuarios.getModel()).removeRow(0);
-        }
-    }
     
-    void Lista(){
-        List<Usuario> usuarios = UsuarioDao.ListarUsuarios();
-        if(usuarios.size()>0){
-            Iterator consulta = usuarios.iterator();
-            while(consulta.hasNext()){
-                DefaultTableModel tabela = (DefaultTableModel)tblUsuarios.getModel();
-                Vector dados = new Vector();
-                Usuario fila = (Usuario)consulta.next();
-                dados.add(fila.getIdusuario());
-                dados.add(fila.getNUsuario());
-                dados.add(fila.getNome());
-                dados.add(fila.getMorada());
-                dados.add(fila.getContacto());
-                dados.add(fila.getEmail());
-                dados.add(fila.getNAcesso());
-                tabela.addRow(dados);
-            }
-        }else{
-            JOptionPane.showMessageDialog(null,"Não há Usuários Cadastrados!");
-        }
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -249,11 +220,7 @@ public class pnlUsuarios extends javax.swing.JPanel {
     }//GEN-LAST:event_rSButton1ActionPerformed
 
     private void btnRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverActionPerformed
-         if (eliminarUsuario(1)==true){
-             JOptionPane.showMessageDialog(null," Usuario Removido");
-        }else{
-             JOptionPane.showMessageDialog(null," erro na remocao ");
-        }
+        
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRemoverActionPerformed
 

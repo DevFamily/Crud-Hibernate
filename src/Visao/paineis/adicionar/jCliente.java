@@ -6,7 +6,7 @@
 package Visao.paineis.adicionar;
 
 
-import Controle.ClienteDao;
+
 import javax.swing.JOptionPane;
 
 
@@ -207,7 +207,7 @@ txtEmail.getText().lastIndexOf('@')));
     }//GEN-LAST:event_txtEmailFocusLost
 
     private void rSButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButton1ActionPerformed
-       adicionar();
+      
     }//GEN-LAST:event_rSButton1ActionPerformed
 
     /**
@@ -232,22 +232,4 @@ txtEmail.getText().lastIndexOf('@')));
     private rojeru_san.RSMTextFull txtMorada;
     private rojeru_san.RSMTextFull txtNome;
     // End of variables declaration//GEN-END:variables
- private void adicionar() {
-       int  contato = Integer.parseInt(txtContacto.getText());
-    if(ClienteDao.criarCliente(txtNome.getText(),txtMorada.getText(),contato,txtEmail.getText())) {
-        JOptionPane.showMessageDialog(null,"Cliente salvo com sucesso");
-        limpar();
-      //  Lista();
-    }  else{
-         JOptionPane.showMessageDialog(null,"Erro ao salvar Cliente");
-    }
-    }
- void limpar(){
-     txtNome.setText("");
-     txtMorada.setText("");
-     txtContacto.setText("");
-     txtEmail.setText("");
-
-     
  }
-}

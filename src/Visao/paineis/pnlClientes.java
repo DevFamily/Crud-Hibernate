@@ -5,9 +5,7 @@
  */
 package Visao.paineis;
 
-import Controle.ClienteDao;
-import static Controle.ClienteDao.eliminarCliente;
-import Modelo.Cliente;
+
 import Visao.paineis.adicionar.jCliente;
 import java.util.Iterator;
 import java.util.List;
@@ -26,7 +24,7 @@ public class pnlClientes extends javax.swing.JPanel {
      */
     public pnlClientes() {
         initComponents();
-        Lista();
+        
     }
     
     void LimparLista(){
@@ -35,26 +33,7 @@ public class pnlClientes extends javax.swing.JPanel {
         }
     }
     
-    void Lista(){
-        List<Cliente> cliente = ClienteDao.ListarClientes();
-        if(cliente.size()>0){
-            Iterator consulta = cliente.iterator();
-            while(consulta.hasNext()){
-                DefaultTableModel tabela = (DefaultTableModel)tblCliente.getModel();
-                Vector dados = new Vector();
-                Cliente fila = (Cliente)consulta.next();
-                dados.add(fila.getIdcliente());
-                dados.add(fila.getNome());
-                dados.add(fila.getMorada());
-                dados.add(fila.getContacto());
-                dados.add(fila.getEmail());
-                tabela.addRow(dados);
-            }
-        }else{
-            JOptionPane.showMessageDialog(null,"Não há Clientes Cadastrados!");
-        }
-    }
-
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -214,11 +193,7 @@ public class pnlClientes extends javax.swing.JPanel {
     }//GEN-LAST:event_nProdutoActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-        if (eliminarCliente(1)==true){
-             JOptionPane.showMessageDialog(null," Cliente Removido");
-        }else{
-             JOptionPane.showMessageDialog(null," erro na remocao ");
-        }
+       
     }//GEN-LAST:event_btnExcluirActionPerformed
 
 

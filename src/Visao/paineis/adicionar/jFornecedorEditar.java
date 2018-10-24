@@ -5,8 +5,7 @@
  */
 package Visao.paineis.adicionar;
 
-import Controle.FornecedorDao;
-import javax.swing.JOptionPane;
+
 
 
 

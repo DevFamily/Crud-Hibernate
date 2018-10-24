@@ -5,10 +5,6 @@
  */
 package Visao.paineis.adicionar;
 
-import Controle.UsuarioDao;
-import javax.swing.JOptionPane;
-import Visao.paineis.pnlUsuarios;
-
 /**
  *
  * @author Tomas Mufume
@@ -192,7 +188,7 @@ public class jUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_rSButton2ActionPerformed
 
     private void rSButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButton1ActionPerformed
-       adicionar();
+       
     }//GEN-LAST:event_rSButton1ActionPerformed
 
     
@@ -219,13 +215,5 @@ public class jUsuario extends javax.swing.JFrame {
     private rojeru_san.RSMTextFull txtUsuario;
     // End of variables declaration//GEN-END:variables
 
-    private void adicionar() {
-       int  contato = Integer.parseInt(txtContacto.getText());
-    if(UsuarioDao.criarUsuario(txtUsuario.getText(),txtNome.getText(),txtMorada.getText(),contato,txtEmail.getText(),cbAcesso.getSelectedItem().toString())) {
-        JOptionPane.showMessageDialog(null,"Usuario salvo com sucesso");
-      //  Lista();
-    }  else{
-         JOptionPane.showMessageDialog(null,"Erro ao salvar usuario");
-    }
-    }
+   
 }

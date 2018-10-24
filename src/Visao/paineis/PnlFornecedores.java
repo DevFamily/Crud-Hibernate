@@ -7,9 +7,9 @@ package Visao.paineis;
 
 
 
-import Controle.FornecedorDao;
-import static Controle.FornecedorDao.eliminarFornecedor;
-import Modelo.Fornecedor;
+
+
+
 import Visao.paineis.adicionar.jFornecedor;
 import Visao.paineis.adicionar.jFornecedorEditar;
 import java.awt.Color;
@@ -30,35 +30,12 @@ public class PnlFornecedores extends javax.swing.JPanel {
      */
     public PnlFornecedores() {
         initComponents();
-        Lista();
+       
         jScrollPane1.getViewport().setBackground(Color.white );
     }
     
-    void LimparLista(){
-        while(tblFornecedor.getRowCount()!=0){
-            ((DefaultTableModel)tblFornecedor.getModel()).removeRow(0);
-        }
-    }
     
-    void Lista(){
-        List<Fornecedor> fornecedor = FornecedorDao.ListarFornecedores();
-        if(fornecedor.size()>0){
-            Iterator consulta = fornecedor.iterator();
-            while(consulta.hasNext()){
-                DefaultTableModel tabela = (DefaultTableModel)tblFornecedor.getModel();
-                Vector dados = new Vector();
-                Fornecedor fila = (Fornecedor)consulta.next();
-                dados.add(fila.getIdfornecedor());
-                dados.add(fila.getNome());
-                dados.add(fila.getMorada());
-                dados.add(fila.getContacto());
-                dados.add(fila.getEmail());
-                tabela.addRow(dados);
-            }
-        }else{
-            JOptionPane.showMessageDialog(null,"Não há Fornecedores Cadastrados!");
-        }
-    }
+   
 
 
 
@@ -256,11 +233,7 @@ public class PnlFornecedores extends javax.swing.JPanel {
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void btnRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverActionPerformed
-        if (eliminarFornecedor(0)==true){
-            JOptionPane.showMessageDialog(null," Fornecedor Eliminado");
-        }else{
-            JOptionPane.showMessageDialog(null," Erro na eliminacao");
-        }
+      
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRemoverActionPerformed
 
