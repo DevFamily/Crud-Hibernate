@@ -8,6 +8,7 @@ package Visao.paineis;
 
 
 import Controle.FornecedorDao;
+import static Controle.FornecedorDao.eliminarFornecedor;
 import Modelo.Fornecedor;
 import Visao.paineis.adicionar.jFornecedor;
 import Visao.paineis.adicionar.jFornecedorEditar;
@@ -79,7 +80,7 @@ public class PnlFornecedores extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         btnNovo = new rojeru_san.RSButton();
         btnActualizar = new rojeru_san.RSButton();
-        rSButton3 = new rojeru_san.RSButton();
+        btnRemover = new rojeru_san.RSButton();
         rSMTextFull1 = new rojeru_san.RSMTextFull();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -168,9 +169,14 @@ public class PnlFornecedores extends javax.swing.JPanel {
             }
         });
 
-        rSButton3.setBackground(new java.awt.Color(102, 102, 102));
-        rSButton3.setText("Remover");
-        rSButton3.setColorHover(new java.awt.Color(51, 51, 51));
+        btnRemover.setBackground(new java.awt.Color(102, 102, 102));
+        btnRemover.setText("Remover");
+        btnRemover.setColorHover(new java.awt.Color(51, 51, 51));
+        btnRemover.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoverActionPerformed(evt);
+            }
+        });
 
         rSMTextFull1.setBorder(null);
         rSMTextFull1.setForeground(new java.awt.Color(0, 0, 0));
@@ -188,7 +194,7 @@ public class PnlFornecedores extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(rSButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnRemover, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)
                 .addComponent(rSMTextFull1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -200,7 +206,7 @@ public class PnlFornecedores extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rSButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRemover, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(rSMTextFull1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(2, 2, 2))
         );
@@ -249,17 +255,26 @@ public class PnlFornecedores extends javax.swing.JPanel {
         f.setVisible(true);
     }//GEN-LAST:event_btnActualizarActionPerformed
 
+    private void btnRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverActionPerformed
+        if (eliminarFornecedor(0)==true){
+            JOptionPane.showMessageDialog(null," Fornecedor Eliminado");
+        }else{
+            JOptionPane.showMessageDialog(null," Erro na eliminacao");
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRemoverActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private rojeru_san.RSButton btnActualizar;
     private rojeru_san.RSButton btnNovo;
+    private rojeru_san.RSButton btnRemover;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private rojeru_san.RSButton rSButton3;
     private rojeru_san.RSMTextFull rSMTextFull1;
     private rojerusan.RSTableMetro tblFornecedor;
     // End of variables declaration//GEN-END:variables

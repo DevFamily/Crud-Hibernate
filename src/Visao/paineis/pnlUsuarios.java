@@ -5,7 +5,9 @@
  */
 package Visao.paineis;
 
+import static Controle.ClienteDao.eliminarCliente;
 import Controle.UsuarioDao;
+import static Controle.UsuarioDao.eliminarUsuario;
 import Modelo.Usuario;
 import Visao.paineis.adicionar.jUsuario;
 import java.util.Iterator;
@@ -74,7 +76,7 @@ public class pnlUsuarios extends javax.swing.JPanel {
         jPanel3 = new javax.swing.JPanel();
         rSButton1 = new rojeru_san.RSButton();
         rSButton2 = new rojeru_san.RSButton();
-        rSButton3 = new rojeru_san.RSButton();
+        btnRemover = new rojeru_san.RSButton();
         rSMTextFull1 = new rojeru_san.RSMTextFull();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -163,9 +165,14 @@ public class pnlUsuarios extends javax.swing.JPanel {
         rSButton2.setText("Actualizar");
         rSButton2.setColorHover(new java.awt.Color(51, 51, 51));
 
-        rSButton3.setBackground(new java.awt.Color(102, 102, 102));
-        rSButton3.setText("Excluir");
-        rSButton3.setColorHover(new java.awt.Color(51, 51, 51));
+        btnRemover.setBackground(new java.awt.Color(102, 102, 102));
+        btnRemover.setText("Remover");
+        btnRemover.setColorHover(new java.awt.Color(51, 51, 51));
+        btnRemover.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoverActionPerformed(evt);
+            }
+        });
 
         rSMTextFull1.setBorder(null);
         rSMTextFull1.setForeground(new java.awt.Color(0, 0, 0));
@@ -183,7 +190,7 @@ public class pnlUsuarios extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(rSButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rSButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnRemover, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 220, Short.MAX_VALUE)
                 .addComponent(rSMTextFull1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -195,7 +202,7 @@ public class pnlUsuarios extends javax.swing.JPanel {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rSButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(rSButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rSButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRemover, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(rSMTextFull1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(2, 2, 2))
         );
@@ -241,8 +248,18 @@ public class pnlUsuarios extends javax.swing.JPanel {
 // TODO add your handling code here:
     }//GEN-LAST:event_rSButton1ActionPerformed
 
+    private void btnRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverActionPerformed
+         if (eliminarUsuario(1)==true){
+             JOptionPane.showMessageDialog(null," Usuario Removido");
+        }else{
+             JOptionPane.showMessageDialog(null," erro na remocao ");
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRemoverActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private rojeru_san.RSButton btnRemover;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
@@ -251,7 +268,6 @@ public class pnlUsuarios extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private rojeru_san.RSButton rSButton1;
     private rojeru_san.RSButton rSButton2;
-    private rojeru_san.RSButton rSButton3;
     private rojeru_san.RSMTextFull rSMTextFull1;
     private rojerusan.RSTableMetro tblUsuarios;
     // End of variables declaration//GEN-END:variables

@@ -5,6 +5,7 @@
  */
 package Visao.paineis;
 
+import Visao.paineis.adicionar.jEstoque;
 import java.awt.Color;
 
 /**
@@ -84,6 +85,11 @@ public class pnlEstoque extends javax.swing.JPanel {
         nProduto.setToolTipText("Nova Venda");
         nProduto.setColorHover(new java.awt.Color(51, 51, 51));
         nProduto.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        nProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nProdutoActionPerformed(evt);
+            }
+        });
 
         rSButton2.setBackground(new java.awt.Color(102, 102, 102));
         rSButton2.setText("Actualizar");
@@ -196,6 +202,12 @@ public class pnlEstoque extends javax.swing.JPanel {
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void nProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nProdutoActionPerformed
+jEstoque estoque = new jEstoque();
+estoque.setVisible(true);
+       
+    }//GEN-LAST:event_nProdutoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

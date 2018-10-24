@@ -62,7 +62,7 @@ public class FornecedorDao {
         }
      }
      
-     public static boolean eliminarFornecedor(int id, String nome, String morada, int contacto, String email){
+     public static boolean eliminarFornecedor(int id){
         Session sessao = HibernateUtil.getSessionFactory().openSession();
         sessao.beginTransaction();
         try{

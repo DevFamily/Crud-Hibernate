@@ -65,7 +65,7 @@ public class UsuarioDao {
         }
      }
      
-     public static boolean eliminarUsuario(int id, String n_usuario, String nome, String morada, int contacto, String email, String n_acesso){
+     public static boolean eliminarUsuario(int id){
         Session sessao = HibernateUtil.getSessionFactory().openSession();
         sessao.beginTransaction();
         try{

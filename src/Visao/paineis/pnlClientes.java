@@ -6,6 +6,7 @@
 package Visao.paineis;
 
 import Controle.ClienteDao;
+import static Controle.ClienteDao.eliminarCliente;
 import Modelo.Cliente;
 import Visao.paineis.adicionar.jCliente;
 import java.util.Iterator;
@@ -152,7 +153,7 @@ public class pnlClientes extends javax.swing.JPanel {
         rSButton2.setColorHover(new java.awt.Color(51, 51, 51));
 
         btnExcluir.setBackground(new java.awt.Color(102, 102, 102));
-        btnExcluir.setText("Excluir");
+        btnExcluir.setText("Remover");
         btnExcluir.setColorHover(new java.awt.Color(51, 51, 51));
         btnExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -213,7 +214,11 @@ public class pnlClientes extends javax.swing.JPanel {
     }//GEN-LAST:event_nProdutoActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-       
+        if (eliminarCliente(1)==true){
+             JOptionPane.showMessageDialog(null," Cliente Removido");
+        }else{
+             JOptionPane.showMessageDialog(null," erro na remocao ");
+        }
     }//GEN-LAST:event_btnExcluirActionPerformed
 
 

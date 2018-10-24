@@ -5,6 +5,8 @@
  */
 package Visao.paineis;
 
+import Visao.paineis.adicionar.jCotacao;
+import Visao.paineis.adicionar.jVenda;
 import java.awt.Color;
 
 /**
@@ -83,10 +85,20 @@ public class pnlVendas extends javax.swing.JPanel {
         rSButton1.setToolTipText("Nova Venda");
         rSButton1.setColorHover(new java.awt.Color(51, 51, 51));
         rSButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        rSButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSButton1ActionPerformed(evt);
+            }
+        });
 
         rSButton2.setBackground(new java.awt.Color(102, 102, 102));
         rSButton2.setText("Cotação");
         rSButton2.setColorHover(new java.awt.Color(51, 51, 51));
+        rSButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSButton2ActionPerformed(evt);
+            }
+        });
 
         rSButton3.setBackground(new java.awt.Color(102, 102, 102));
         rSButton3.setText("Calendário");
@@ -187,6 +199,16 @@ public class pnlVendas extends javax.swing.JPanel {
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void rSButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButton1ActionPerformed
+    jVenda vender = new jVenda();
+    vender.setVisible(true);
+    }//GEN-LAST:event_rSButton1ActionPerformed
+
+    private void rSButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButton2ActionPerformed
+        jCotacao cot = new jCotacao();
+        cot.setVisible(true);
+    }//GEN-LAST:event_rSButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

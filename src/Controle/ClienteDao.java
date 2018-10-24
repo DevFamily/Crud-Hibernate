@@ -62,7 +62,7 @@ public class ClienteDao {
         }
      }
      
-     public static boolean eliminarCliente(int id, String nome, String morada, int contacto, String email){
+     public static boolean eliminarCliente(int id){
         Session sessao = HibernateUtil.getSessionFactory().openSession();
         sessao.beginTransaction();
         try{
