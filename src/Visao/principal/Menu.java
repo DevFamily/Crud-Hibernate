@@ -5,6 +5,7 @@
  */
 package Visao.principal;
 
+import Visao.paineis.pnlEstoque;
 import java.awt.Toolkit;
 import rojerusan.RSPanelsSlider;
 
@@ -13,12 +14,14 @@ import rojerusan.RSPanelsSlider;
  * @author Tomas Mufume
  */
 public class Menu extends javax.swing.JFrame {
-
+    pnlEstoque pe = new pnlEstoque();
     /**
      * Creates new form Menu
      */
     public Menu() {
         initComponents();
+        pe.carregarProdutos();
+        
         this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("nt.png")));
         rsutilities.RSUtilities.setCentrarVentana(this);
     }
@@ -293,9 +296,10 @@ public class Menu extends javax.swing.JFrame {
             pnlSlider.setPanelSlider(1, pnlVendas1, rojeru_san.RSPanelsSlider.DIRECT.RIGHT);
         }
     }//GEN-LAST:event_btVendasActionPerformed
-
+    
+    
     private void btEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEstoqueActionPerformed
-         if(!btEstoque.isSelected()){
+        if(!btEstoque.isSelected()){
             btInicio.setSelected(false);
             btVendas.setSelected(false);
             btEstoque.setSelected(true);
@@ -308,7 +312,8 @@ public class Menu extends javax.swing.JFrame {
             pnlSlider.setPanelSlider(1, pnlEstoque1, rojeru_san.RSPanelsSlider.DIRECT.RIGHT);
         }
     }//GEN-LAST:event_btEstoqueActionPerformed
-
+    
+    
     private void btUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btUsuariosActionPerformed
        if(!btUsuarios.isSelected()){
             btInicio.setSelected(false);

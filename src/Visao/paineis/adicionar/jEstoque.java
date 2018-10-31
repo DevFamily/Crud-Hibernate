@@ -5,6 +5,13 @@
  */
 package Visao.paineis.adicionar;
 
+import Controle.ProdutoControle;
+import Controle.ProdutoDao;
+import Modelo.Produto;
+import Visao.paineis.pnlEstoque;
+import Visao.principal.Menu;
+import javax.swing.JOptionPane;
+
 
 
 /**
@@ -12,12 +19,17 @@ package Visao.paineis.adicionar;
  * @author Tomas Mufume
  */
 public class jEstoque extends javax.swing.JFrame {
+ Produto produtos = new Produto();
+ ProdutoControle controleProdutos = new ProdutoControle();
+ pnlEstoque pe = new pnlEstoque();
+    Menu mn = new Menu();
 
     /**
      * Creates new form jCliente
      */
     public jEstoque() {
         initComponents();
+         pe.carregarProdutos();
          this.setLocationRelativeTo(null);
          
          
@@ -43,22 +55,22 @@ public class jEstoque extends javax.swing.JFrame {
         btnCancelar = new rojeru_san.RSButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cbFornecedor = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
-        txtContacto1 = new rojeru_san.RSMTextFull();
-        txtContacto2 = new rojeru_san.RSMTextFull();
+        txtPrecoAquisicao = new rojeru_san.RSMTextFull();
+        txtPrecoVenda = new rojeru_san.RSMTextFull();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        txtContacto3 = new rojeru_san.RSMTextFull();
-        txtContacto4 = new rojeru_san.RSMTextFull();
+        txtProduto = new rojeru_san.RSMTextFull();
+        txtQuantidade = new rojeru_san.RSMTextFull();
         jLabel3 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        btnVender = new rojeru_san.RSButton();
+        btnSalvarProduto = new rojeru_san.RSButton();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
         jLabel14 = new javax.swing.JLabel();
+        cbTipoProduto1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -114,7 +126,7 @@ public class jEstoque extends javax.swing.JFrame {
                 btnCancelarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 380, 90, -1));
+        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 380, 120, -1));
 
         jLabel1.setBackground(new java.awt.Color(0, 204, 204));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -126,31 +138,33 @@ public class jEstoque extends javax.swing.JFrame {
         jLabel2.setText("0.00 ");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 340, 70, 40));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Empty" }));
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 210, 40));
+        cbFornecedor.setBackground(new java.awt.Color(204, 204, 204));
+        cbFornecedor.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        cbFornecedor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Carlos", "Mateus", "Ribeiro", "Fenias", "Bombe" }));
+        jPanel1.add(cbFornecedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, 210, 40));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel5.setText("Produto");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 50, 42));
 
-        txtContacto1.setBackground(new java.awt.Color(204, 204, 204));
-        txtContacto1.setForeground(new java.awt.Color(0, 0, 0));
-        txtContacto1.setBordeColorFocus(new java.awt.Color(0, 0, 0));
-        txtContacto1.setBotonColor(new java.awt.Color(0, 0, 0));
-        txtContacto1.setPlaceholder("");
-        jPanel1.add(txtContacto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, 210, -1));
+        txtPrecoAquisicao.setBackground(new java.awt.Color(204, 204, 204));
+        txtPrecoAquisicao.setForeground(new java.awt.Color(0, 0, 0));
+        txtPrecoAquisicao.setBordeColorFocus(new java.awt.Color(0, 0, 0));
+        txtPrecoAquisicao.setBotonColor(new java.awt.Color(0, 0, 0));
+        txtPrecoAquisicao.setPlaceholder("");
+        jPanel1.add(txtPrecoAquisicao, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, 210, -1));
 
-        txtContacto2.setBackground(new java.awt.Color(204, 204, 204));
-        txtContacto2.setForeground(new java.awt.Color(0, 0, 0));
-        txtContacto2.setBordeColorFocus(new java.awt.Color(0, 0, 0));
-        txtContacto2.setBotonColor(new java.awt.Color(0, 0, 0));
-        txtContacto2.setPlaceholder("");
-        txtContacto2.addActionListener(new java.awt.event.ActionListener() {
+        txtPrecoVenda.setBackground(new java.awt.Color(204, 204, 204));
+        txtPrecoVenda.setForeground(new java.awt.Color(0, 0, 0));
+        txtPrecoVenda.setBordeColorFocus(new java.awt.Color(0, 0, 0));
+        txtPrecoVenda.setBotonColor(new java.awt.Color(0, 0, 0));
+        txtPrecoVenda.setPlaceholder("");
+        txtPrecoVenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtContacto2ActionPerformed(evt);
+                txtPrecoVendaActionPerformed(evt);
             }
         });
-        jPanel1.add(txtContacto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, 210, -1));
+        jPanel1.add(txtPrecoVenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, 210, -1));
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel8.setText("Quantidade");
@@ -160,19 +174,19 @@ public class jEstoque extends javax.swing.JFrame {
         jLabel9.setText("Tipo de Produto");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 110, 42));
 
-        txtContacto3.setBackground(new java.awt.Color(204, 204, 204));
-        txtContacto3.setForeground(new java.awt.Color(0, 0, 0));
-        txtContacto3.setBordeColorFocus(new java.awt.Color(0, 0, 0));
-        txtContacto3.setBotonColor(new java.awt.Color(0, 0, 0));
-        txtContacto3.setPlaceholder("");
-        jPanel1.add(txtContacto3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 210, -1));
+        txtProduto.setBackground(new java.awt.Color(204, 204, 204));
+        txtProduto.setForeground(new java.awt.Color(0, 0, 0));
+        txtProduto.setBordeColorFocus(new java.awt.Color(0, 0, 0));
+        txtProduto.setBotonColor(new java.awt.Color(0, 0, 0));
+        txtProduto.setPlaceholder("");
+        jPanel1.add(txtProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 210, -1));
 
-        txtContacto4.setBackground(new java.awt.Color(204, 204, 204));
-        txtContacto4.setForeground(new java.awt.Color(0, 0, 0));
-        txtContacto4.setBordeColorFocus(new java.awt.Color(0, 0, 0));
-        txtContacto4.setBotonColor(new java.awt.Color(0, 0, 0));
-        txtContacto4.setPlaceholder("");
-        jPanel1.add(txtContacto4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 210, -1));
+        txtQuantidade.setBackground(new java.awt.Color(204, 204, 204));
+        txtQuantidade.setForeground(new java.awt.Color(0, 0, 0));
+        txtQuantidade.setBordeColorFocus(new java.awt.Color(0, 0, 0));
+        txtQuantidade.setBotonColor(new java.awt.Color(0, 0, 0));
+        txtQuantidade.setPlaceholder("");
+        jPanel1.add(txtQuantidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 210, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 160, 30));
@@ -183,14 +197,14 @@ public class jEstoque extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 140, 30));
 
-        btnVender.setBackground(new java.awt.Color(102, 102, 102));
-        btnVender.setText("Vender");
-        btnVender.addActionListener(new java.awt.event.ActionListener() {
+        btnSalvarProduto.setBackground(new java.awt.Color(102, 102, 102));
+        btnSalvarProduto.setText("Adicionar");
+        btnSalvarProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVenderActionPerformed(evt);
+                btnSalvarProdutoActionPerformed(evt);
             }
         });
-        jPanel1.add(btnVender, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 90, -1));
+        jPanel1.add(btnSalvarProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 130, -1));
 
         jLabel12.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel12.setText("Preço de Aquisição");
@@ -200,29 +214,46 @@ public class jEstoque extends javax.swing.JFrame {
         jLabel13.setText("Preço de Venda");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 130, 20));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Empty" }));
-        jPanel1.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, 210, 40));
-
         jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel14.setText("Total :");
         jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 350, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 440));
+        cbTipoProduto1.setBackground(new java.awt.Color(204, 204, 204));
+        cbTipoProduto1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        cbTipoProduto1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sumo", "Cerveja", "Wisk", "Vinho", "Refrigerante" }));
+        jPanel1.add(cbTipoProduto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 210, 40));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, -20, 430, 440));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVenderActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnVenderActionPerformed
+    private void btnSalvarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarProdutoActionPerformed
+        produtos.setProduto(this.txtProduto.getText());
+        produtos.setQuantidade(Integer.parseInt(this.txtQuantidade.getText()));
+        produtos.setTipoProduto(this.cbFornecedor.getSelectedItem().toString());
+        produtos.setpCompra(Double.parseDouble(this.txtPrecoAquisicao.getText()));
+        produtos.setpVenda(Double.parseDouble(this.txtPrecoVenda.getText()));
+        
+       if (controleProdutos.salvarProdutoController(produtos)>0){
+           JOptionPane.showMessageDialog(this,"Produto salvo com sucesso! ");
+
+           pe.carregarProdutos();
+           
+       }else{
+           JOptionPane.showMessageDialog(this,"Erro ao salvar Produto! ");
+           
+       }
+    }//GEN-LAST:event_btnSalvarProdutoActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         this.dispose();
+        
     }//GEN-LAST:event_btnCancelarActionPerformed
 
-    private void txtContacto2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContacto2ActionPerformed
+    private void txtPrecoVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecoVendaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtContacto2ActionPerformed
+    }//GEN-LAST:event_txtPrecoVendaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -231,9 +262,9 @@ public class jEstoque extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private rojeru_san.RSButton btnCancelar;
-    private rojeru_san.RSButton btnVender;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private rojeru_san.RSButton btnSalvarProduto;
+    private javax.swing.JComboBox<String> cbFornecedor;
+    private javax.swing.JComboBox<String> cbTipoProduto1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -251,10 +282,10 @@ public class jEstoque extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel jlCliente;
-    private rojeru_san.RSMTextFull txtContacto1;
-    private rojeru_san.RSMTextFull txtContacto2;
-    private rojeru_san.RSMTextFull txtContacto3;
-    private rojeru_san.RSMTextFull txtContacto4;
+    private rojeru_san.RSMTextFull txtPrecoAquisicao;
+    private rojeru_san.RSMTextFull txtPrecoVenda;
+    private rojeru_san.RSMTextFull txtProduto;
+    private rojeru_san.RSMTextFull txtQuantidade;
     // End of variables declaration//GEN-END:variables
  
 }
