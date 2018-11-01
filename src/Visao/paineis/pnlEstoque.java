@@ -94,7 +94,7 @@ ArrayList<Produto> listaProduto = new ArrayList<>();
         jLabel13 = new javax.swing.JLabel();
         txtPrecoVenda = new rojeru_san.RSMTextFull();
         jLabel9 = new javax.swing.JLabel();
-        cbTipoProduto1 = new javax.swing.JComboBox<>();
+        cbTipoProduto = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         cbFornecedor = new javax.swing.JComboBox<>();
         jPanel5 = new javax.swing.JPanel();
@@ -193,9 +193,9 @@ ArrayList<Produto> listaProduto = new ArrayList<>();
         jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel9.setText("Tipo de Produto");
 
-        cbTipoProduto1.setBackground(new java.awt.Color(204, 204, 204));
-        cbTipoProduto1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        cbTipoProduto1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sumo", "Cerveja", "Wisk", "Vinho", "Refrigerante" }));
+        cbTipoProduto.setBackground(new java.awt.Color(204, 204, 204));
+        cbTipoProduto.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        cbTipoProduto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sumo", "Cerveja", "Wisk", "Vinho", "Refrigerante" }));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel4.setText("Fornecedor");
@@ -219,7 +219,7 @@ ArrayList<Produto> listaProduto = new ArrayList<>();
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(cbTipoProduto1, 0, 199, Short.MAX_VALUE)
+                            .addComponent(cbTipoProduto, 0, 199, Short.MAX_VALUE)
                             .addComponent(txtProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                         .addGap(32, 32, 32)
@@ -262,7 +262,7 @@ ArrayList<Produto> listaProduto = new ArrayList<>();
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbTipoProduto1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbTipoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -534,7 +534,7 @@ ArrayList<Produto> listaProduto = new ArrayList<>();
             
             this.txtProduto.setText(produtos.getProduto());
             this.txtQuantidade.setText(String.valueOf(produtos.getQuantidade()));
-           this.cbTipoProduto1.setSelectedItem(produtos.getTipoProduto());
+           this.cbTipoProduto.setSelectedItem(produtos.getTipoProduto());
             this.txtPrecoAquisicao.setText(String.valueOf(produtos.getpCompra()));
             this.txtPrecoVenda.setText(String.valueOf(produtos.getpVenda()));
             //this.cbFornecedor.setSelectedItem(produtos.getFornecedor()));
@@ -553,7 +553,7 @@ ArrayList<Produto> listaProduto = new ArrayList<>();
     private rojeru_san.RSButton bSalvarProduto;
     private rojeru_san.RSButton btnPesquisar;
     private javax.swing.JComboBox<String> cbFornecedor;
-    private javax.swing.JComboBox<String> cbTipoProduto1;
+    private javax.swing.JComboBox<String> cbTipoProduto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -579,7 +579,7 @@ ArrayList<Produto> listaProduto = new ArrayList<>();
 private void salvarProduto(){
         produtos.setProduto(this.txtProduto.getText());
         produtos.setQuantidade(Integer.parseInt(this.txtQuantidade.getText()));
-        produtos.setTipoProduto(this.cbFornecedor.getSelectedItem().toString());
+        produtos.setTipoProduto(this.cbTipoProduto.getSelectedItem().toString());
         produtos.setpCompra(Double.parseDouble(this.txtPrecoAquisicao.getText()));
         produtos.setpVenda(Double.parseDouble(this.txtPrecoVenda.getText()));
         
@@ -597,9 +597,9 @@ private void salvarProduto(){
     
 }
 private void alterarProduto(){
-     produtos.setProduto(this.txtProduto.getText());
+        produtos.setProduto(this.txtProduto.getText());
         produtos.setQuantidade(Integer.parseInt(this.txtQuantidade.getText()));
-        produtos.setTipoProduto(this.cbFornecedor.getSelectedItem().toString());
+        produtos.setTipoProduto(this.cbTipoProduto.getSelectedItem().toString());
         produtos.setpCompra(Double.parseDouble(this.txtPrecoAquisicao.getText()));
         produtos.setpVenda(Double.parseDouble(this.txtPrecoVenda.getText()));
         

@@ -8,14 +8,19 @@ package Visao.splash;
 
 
 
+import Controle.UsuarioControle;
+import Modelo.Usuario;
 import Visao.principal.Menu;
 import java.awt.Toolkit;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Atália Mufume
  */
 public class Entrar extends javax.swing.JFrame {
+    UsuarioControle controleUsuarios = new UsuarioControle();
+    Usuario usuarios = new Usuario();
 
     /**
      * Creates new form Entrar
@@ -39,9 +44,9 @@ public class Entrar extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        rSMTextFull4 = new rojeru_san.RSMTextFull();
+        txtLogin = new rojeru_san.RSMTextFull();
         btnEntrar = new rojeru_san.RSButton();
-        rSMPassView1 = new rojeru_san.RSMPassView();
+        txtSenha = new rojeru_san.RSMPassView();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -81,12 +86,12 @@ public class Entrar extends javax.swing.JFrame {
         });
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 60, 40));
 
-        rSMTextFull4.setBackground(new java.awt.Color(102, 102, 102));
-        rSMTextFull4.setForeground(new java.awt.Color(0, 0, 0));
-        rSMTextFull4.setBordeColorFocus(new java.awt.Color(0, 0, 0));
-        rSMTextFull4.setBotonColor(new java.awt.Color(0, 0, 0));
-        rSMTextFull4.setPlaceholder("Introduzir o nome de Usuário");
-        jPanel1.add(rSMTextFull4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 320, -1));
+        txtLogin.setBackground(new java.awt.Color(102, 102, 102));
+        txtLogin.setForeground(new java.awt.Color(0, 0, 0));
+        txtLogin.setBordeColorFocus(new java.awt.Color(0, 0, 0));
+        txtLogin.setBotonColor(new java.awt.Color(0, 0, 0));
+        txtLogin.setPlaceholder("Introduzir o nome de Usuário");
+        jPanel1.add(txtLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 320, -1));
 
         btnEntrar.setBackground(new java.awt.Color(51, 51, 51));
         btnEntrar.setText("Entrar");
@@ -98,12 +103,12 @@ public class Entrar extends javax.swing.JFrame {
         });
         jPanel1.add(btnEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, 170, -1));
 
-        rSMPassView1.setBackground(new java.awt.Color(102, 102, 102));
-        rSMPassView1.setForeground(new java.awt.Color(0, 0, 0));
-        rSMPassView1.setBordeColorFocus(new java.awt.Color(0, 0, 0));
-        rSMPassView1.setBotonColor(new java.awt.Color(0, 0, 0));
-        rSMPassView1.setPlaceholder("Introduzir a Senha");
-        jPanel1.add(rSMPassView1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, 320, -1));
+        txtSenha.setBackground(new java.awt.Color(102, 102, 102));
+        txtSenha.setForeground(new java.awt.Color(0, 0, 0));
+        txtSenha.setBordeColorFocus(new java.awt.Color(0, 0, 0));
+        txtSenha.setBotonColor(new java.awt.Color(0, 0, 0));
+        txtSenha.setPlaceholder("Introduzir a Senha");
+        jPanel1.add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, 320, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -136,9 +141,16 @@ System.exit(0);
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-       Menu p = new Menu();
-       p.setVisible(true);
-       this.dispose();
+       usuarios.setLogin(txtLogin.getText());
+       usuarios.setSenha(String.valueOf(txtSenha.getPassword()));
+        if(controleUsuarios.getValidarUsuarioController(usuarios)){
+            new Menu().setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(this, "Credenciais Inválidos","Aviso",JOptionPane.WARNING_MESSAGE);
+        }
+//       Menu p = new Menu();
+//       p.setVisible(true);
+//       this.dispose();
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     /**
@@ -153,7 +165,7 @@ System.exit(0);
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private rojeru_san.RSMPassView rSMPassView1;
-    private rojeru_san.RSMTextFull rSMTextFull4;
+    private rojeru_san.RSMTextFull txtLogin;
+    private rojeru_san.RSMPassView txtSenha;
     // End of variables declaration//GEN-END:variables
 }

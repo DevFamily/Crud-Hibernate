@@ -151,5 +151,33 @@ public class UsuarioDao extends Conexao{
             this.fecharConexao();
         }
     }
+
+    public boolean getValidarUsuarioDAO(Usuario pModelUsuario) {
+        
+        try {
+            this.conectar();
+            this.executarSQL("SELECT "
+                    + "us_idusuario,"
+                    + "us_nome,"
+                    + "us_login,"
+                    + "us_senha,"
+                    + "us_acesso"
+                 + " FROM tb_usuario WHERE us_login = '"+pModelUsuario.getLogin()+"' AND us_senha = '"+pModelUsuario.getSenha()+"'"
+                    +";"
+            );
+
+            if (getResultSet().next()) {
+                return true;          
+            }else{
+                return false;
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+            return false;
+        }finally{
+            this.fecharConexao();
+         }
+        
     
+    }
 }

@@ -58,6 +58,7 @@ public class Menu extends javax.swing.JFrame {
         pnlSobre1 = new Visao.paineis.pnlSobre();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Sistema de Gestão de Stock - Tchikupene Bottle Store");
 
         rSPanelGradiente1.setColorPrimario(new java.awt.Color(0, 153, 153));
         rSPanelGradiente1.setColorSecundario(new java.awt.Color(0, 102, 102));
