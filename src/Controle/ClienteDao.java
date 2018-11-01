@@ -22,18 +22,16 @@ public class ClienteDao extends Conexao{
     public int salvarClienteDAO(Cliente pModelCliente){
         try {
             this.conectar();
-            return this.insertSQL(
-                "INSERT INTO tb_cliente ("
+            return this.insertSQL("INSERT INTO tb_cliente ("
                     + "cl_nome,"
                     + "cl_morada,"
                     + "cl_contacto,"
                     + "cl_email"
                 + ") VALUES ("
-                    + "'" + pModelCliente.getIdCliente() + "',"
-                    + "'" + pModelCliente.getNome() + "',"
-                    + "'" + pModelCliente.getMorada() + "',"
-                    + "'" + pModelCliente.getContacto() + "',"
-                    + "'" + pModelCliente.getEmail() + "'"
+                    + "'"+pModelCliente.getNome()+"',"
+                    + "'"+pModelCliente.getMorada()+"',"
+                    + "'"+pModelCliente.getContacto()+"',"
+                    + "'"+pModelCliente.getEmail()+"'"
                 + ");"
             );
         }catch(Exception e){
@@ -53,19 +51,13 @@ public class ClienteDao extends Conexao{
         Cliente modelCliente = new Cliente();
         try {
             this.conectar();
-            this.executarSQL(
-                "SELECT "
-                    + "cl_idcliente,"
+            this.executarSQL("SELECT "
+                    + "cl_idcliente, "
                     + "cl_nome,"
                     + "cl_morada,"
                     + "cl_contacto,"
                     + "cl_email"
-                 + " FROM"
-                     + " tb_cliente"
-                 + " WHERE"
-                     + " cl_idcliente = '" + pIdCliente + "'"
-                + ";"
-            );
+                 + " FROM tb_cliente WHERE cl_idcliente = '"+pIdCliente+"';");
 
             while(this.getResultSet().next()){
                 modelCliente.setIdCliente(this.getResultSet().getInt(1));
@@ -91,17 +83,13 @@ public class ClienteDao extends Conexao{
         Cliente modelCliente = new Cliente();
         try {
             this.conectar();
-            this.executarSQL(
-                "SELECT "
-                    + "cl_idcliente,"
+            this.executarSQL("SELECT "
+                    + "cl_idcliente, "
                     + "cl_nome,"
                     + "cl_morada,"
                     + "cl_contacto,"
                     + "cl_email"
-                 + " FROM"
-                     + " tb_cliente"
-                + ";"
-            );
+                 + " FROM tb_cliente;");
 
             while(this.getResultSet().next()){
                 modelCliente = new Cliente();
@@ -128,15 +116,13 @@ public class ClienteDao extends Conexao{
     public boolean atualizarClienteDAO(Cliente pModelCliente){
         try {
             this.conectar();
-            return this.executarUpdateDeleteSQL(
-                "UPDATE tb_cliente SET "
-                    + "cl_nome = '" + pModelCliente.getNome() + "',"
-                    + "cl_morada = '" + pModelCliente.getMorada() + "',"
-                    + "cl_contacto = '" + pModelCliente.getContacto() + "',"
-                    + "cl_email = '" + pModelCliente.getEmail() + "'"
-                + " WHERE "
-                    + "cl_idcliente = '" + pModelCliente.getIdCliente() + "'"
-                + ";"
+            return this.executarUpdateDeleteSQL("UPDATE tb_cliente SET "
+                    + "cl_nome = ' "+pModelCliente.getNome()+"',"
+                    + "cl_morada = '"+pModelCliente.getMorada()+"',"
+                    + "cl_contacto = '"+pModelCliente.getContacto()+"',"
+                    + "cl_email = '"+pModelCliente.getEmail()+"'"
+                + " WHERE cl_idcliente = '"+pModelCliente.getIdCliente()+"'"
+            
             );
         }catch(Exception e){
             e.printStackTrace();
@@ -155,10 +141,8 @@ public class ClienteDao extends Conexao{
         try {
             this.conectar();
             return this.executarUpdateDeleteSQL(
-                "DELETE FROM tb_cliente "
-                + " WHERE "
-                    + "cl_idcliente = '" + pIdCliente + "'"
-                + ";"
+                "DELETE FROM tb_cliente  WHERE cl_idcliente = '" + pIdCliente + "'"
+                
             );
         }catch(Exception e){
             e.printStackTrace();
