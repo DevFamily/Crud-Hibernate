@@ -7,6 +7,7 @@ package Visao.principal;
 
 import Visao.paineis.pnlEstoque;
 import java.awt.Toolkit;
+import javax.swing.JFrame;
 import rojerusan.RSPanelsSlider;
 
 /**
@@ -19,6 +20,7 @@ public class Menu extends javax.swing.JFrame {
      * Creates new form Menu
      */
     public Menu() {
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
         initComponents();
         pe.carregarProdutos();
         
