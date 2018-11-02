@@ -91,6 +91,11 @@ public class Entrar extends javax.swing.JFrame {
         txtLogin.setBordeColorFocus(new java.awt.Color(0, 0, 0));
         txtLogin.setBotonColor(new java.awt.Color(0, 0, 0));
         txtLogin.setPlaceholder("Introduzir o nome de Usuário");
+        txtLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtLoginActionPerformed(evt);
+            }
+        });
         jPanel1.add(txtLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 320, -1));
 
         btnEntrar.setBackground(new java.awt.Color(51, 51, 51));
@@ -152,6 +157,10 @@ System.exit(0);
 //       p.setVisible(true);
 //       this.dispose();
     }//GEN-LAST:event_btnEntrarActionPerformed
+
+    private void txtLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLoginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtLoginActionPerformed
 
     /**
      * @param args the command line arguments

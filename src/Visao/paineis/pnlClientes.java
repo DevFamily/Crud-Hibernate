@@ -10,6 +10,8 @@ import Controle.ClienteControle;
 import Modelo.Cliente;
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
@@ -189,6 +191,11 @@ public class pnlClientes extends javax.swing.JPanel {
         txtNomeCliente.setBordeColorFocus(new java.awt.Color(0, 0, 0));
         txtNomeCliente.setBotonColor(new java.awt.Color(0, 0, 0));
         txtNomeCliente.setPlaceholder("");
+        txtNomeCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNomeClienteKeyTyped(evt);
+            }
+        });
 
         jLabel12.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel12.setText("Email");
@@ -198,6 +205,16 @@ public class pnlClientes extends javax.swing.JPanel {
         txtEmailCliente.setBordeColorFocus(new java.awt.Color(0, 0, 0));
         txtEmailCliente.setBotonColor(new java.awt.Color(0, 0, 0));
         txtEmailCliente.setPlaceholder("");
+        txtEmailCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEmailClienteActionPerformed(evt);
+            }
+        });
+        txtEmailCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtEmailClienteKeyTyped(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel8.setText("Morada");
@@ -207,6 +224,11 @@ public class pnlClientes extends javax.swing.JPanel {
         txtMoradaCliente.setBordeColorFocus(new java.awt.Color(0, 0, 0));
         txtMoradaCliente.setBotonColor(new java.awt.Color(0, 0, 0));
         txtMoradaCliente.setPlaceholder("");
+        txtMoradaCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtMoradaClienteKeyTyped(evt);
+            }
+        });
 
         txtContactoCliente.setBackground(new java.awt.Color(204, 204, 204));
         txtContactoCliente.setForeground(new java.awt.Color(0, 0, 0));
@@ -216,6 +238,11 @@ public class pnlClientes extends javax.swing.JPanel {
         txtContactoCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtContactoClienteActionPerformed(evt);
+            }
+        });
+        txtContactoCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtContactoClienteKeyTyped(evt);
             }
         });
 
@@ -473,6 +500,48 @@ public class pnlClientes extends javax.swing.JPanel {
        }   
     }//GEN-LAST:event_bSalvarClienteActionPerformed
 
+    private void txtEmailClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEmailClienteActionPerformed
+
+    private void txtNomeClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeClienteKeyTyped
+         String caracter ="0987654321@!#$%^&*()-_+=][|;'º.,''´´«»></?`~\\{}:"; 
+         if(caracter.contains(evt.getKeyChar()+"")){
+         evt.consume();
+         JOptionPane.showMessageDialog(null," nao podes usar numero nem caracteres especiais");
+   }    
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomeClienteKeyTyped
+
+    private void txtMoradaClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMoradaClienteKeyTyped
+         String caracter ="@!#$%^&*()-_+=][|;'º.,''´´«»></?`~\\{}:"; 
+         if(caracter.contains(evt.getKeyChar()+"")){
+         evt.consume();
+         JOptionPane.showMessageDialog(null," nao podes usar  caracteres especiais");
+   }            // TODO add your handling code here:
+    }//GEN-LAST:event_txtMoradaClienteKeyTyped
+
+    private void txtContactoClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContactoClienteKeyTyped
+                                               
+        String caracter ="ABCDEFGHIJKLMNOPQRSTUVXWYZabcdefghijklmnopqrstuvwyz@!§#$%^&*()-_+=][|;'º.,''´´«»></?`~\\{}:"; 
+        if(caracter.contains(evt.getKeyChar()+"")){
+        evt.consume();
+       JOptionPane.showMessageDialog(null," USAR NUMEROS ");
+       
+   }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtContactoClienteKeyTyped
+
+    private void txtEmailClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailClienteKeyTyped
+         String caracter ="!#$%^&*()-_+=][|;'º,''´´«»></?`~\\{}:"; 
+         if(caracter.contains(evt.getKeyChar()+"")){
+         evt.consume();
+         JOptionPane.showMessageDialog(null," USAR LETRAS NUMEROS E [.@] ");
+   }     
+         
+// TODO add your handling code here:
+    }//GEN-LAST:event_txtEmailClienteKeyTyped
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private rojeru_san.RSButton bCancelar;
@@ -535,4 +604,17 @@ private void alterarClientes(){
        }
     
 }
+public  boolean validar(String email)
+    {
+        boolean isEmailIdValid = false;
+        if (email != null && email.length() > 0) {
+            String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
+            Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
+            Matcher matcher = pattern.matcher(email);
+            if (matcher.matches()) {
+                isEmailIdValid = true;
+            }
+        }
+        return isEmailIdValid;
+    }
 }

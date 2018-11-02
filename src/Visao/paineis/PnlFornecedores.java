@@ -226,6 +226,11 @@ public class PnlFornecedores extends javax.swing.JPanel {
         txtNomeFornecedor.setBordeColorFocus(new java.awt.Color(0, 0, 0));
         txtNomeFornecedor.setBotonColor(new java.awt.Color(0, 0, 0));
         txtNomeFornecedor.setPlaceholder("");
+        txtNomeFornecedor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNomeFornecedorKeyTyped(evt);
+            }
+        });
 
         jLabel12.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel12.setText("Email");
@@ -235,6 +240,11 @@ public class PnlFornecedores extends javax.swing.JPanel {
         txtEmailFornecedor.setBordeColorFocus(new java.awt.Color(0, 0, 0));
         txtEmailFornecedor.setBotonColor(new java.awt.Color(0, 0, 0));
         txtEmailFornecedor.setPlaceholder("");
+        txtEmailFornecedor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtEmailFornecedorKeyTyped(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel8.setText("Morada");
@@ -244,6 +254,11 @@ public class PnlFornecedores extends javax.swing.JPanel {
         txtMoradaFornecedor.setBordeColorFocus(new java.awt.Color(0, 0, 0));
         txtMoradaFornecedor.setBotonColor(new java.awt.Color(0, 0, 0));
         txtMoradaFornecedor.setPlaceholder("");
+        txtMoradaFornecedor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtMoradaFornecedorKeyTyped(evt);
+            }
+        });
 
         txtContactoFornecedor.setBackground(new java.awt.Color(204, 204, 204));
         txtContactoFornecedor.setForeground(new java.awt.Color(0, 0, 0));
@@ -253,6 +268,11 @@ public class PnlFornecedores extends javax.swing.JPanel {
         txtContactoFornecedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtContactoFornecedorActionPerformed(evt);
+            }
+        });
+        txtContactoFornecedor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtContactoFornecedorKeyTyped(evt);
             }
         });
 
@@ -496,6 +516,49 @@ public class PnlFornecedores extends javax.swing.JPanel {
         this.habilitarCampos(true);
         saveUpdate = "salvar";
     }//GEN-LAST:event_nFornecedorActionPerformed
+
+    private void txtContactoFornecedorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContactoFornecedorKeyTyped
+                                               
+        String caracter ="ABCDEFGHIJKLMNOPQRSTUVXWYZabcdefghijklmnopqrstuvwyz@!§#$%^&*()-_+=][|;'º.,''´´«»></?`~\\{}:"; 
+        if(caracter.contains(evt.getKeyChar()+"")){
+        evt.consume();
+       JOptionPane.showMessageDialog(null," USAR NUMEROS ");
+       
+   }
+    
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtContactoFornecedorKeyTyped
+
+    private void txtMoradaFornecedorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMoradaFornecedorKeyTyped
+         String caracter ="@!#$%^&*()-_+=][|;'º.,''´´«»></?`~\\{}:"; 
+         if(caracter.contains(evt.getKeyChar()+"")){
+         evt.consume();
+         JOptionPane.showMessageDialog(null," nao podes usar  caracteres especiais");
+   }            // TODO add your handling code here:
+                                     
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtMoradaFornecedorKeyTyped
+
+    private void txtNomeFornecedorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeFornecedorKeyTyped
+         String caracter ="0987654321@!#$%^&*()-_+=][|;'º.,''´´«»></?`~\\{}:"; 
+         if(caracter.contains(evt.getKeyChar()+"")){
+         evt.consume();
+         JOptionPane.showMessageDialog(null," nao podes usar numero nem caracteres especiais");
+   }    
+                                     
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomeFornecedorKeyTyped
+
+    private void txtEmailFornecedorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailFornecedorKeyTyped
+         String caracter ="!#$%^&*()-_+=][|;'º,''´´«»></?`~\\{}:"; 
+         if(caracter.contains(evt.getKeyChar()+"")){
+         evt.consume();
+         JOptionPane.showMessageDialog(null," USAR LETRAS NUMEROS E [.@] ");
+   }     
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEmailFornecedorKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

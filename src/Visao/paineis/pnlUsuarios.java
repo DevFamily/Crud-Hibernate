@@ -186,6 +186,11 @@ public class pnlUsuarios extends javax.swing.JPanel {
         txtNome.setBordeColorFocus(new java.awt.Color(0, 0, 0));
         txtNome.setBotonColor(new java.awt.Color(0, 0, 0));
         txtNome.setPlaceholder("");
+        txtNome.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNomeKeyTyped(evt);
+            }
+        });
 
         jLabel12.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel12.setText("Senha");
@@ -198,6 +203,11 @@ public class pnlUsuarios extends javax.swing.JPanel {
         txtUsuario.setBordeColorFocus(new java.awt.Color(0, 0, 0));
         txtUsuario.setBotonColor(new java.awt.Color(0, 0, 0));
         txtUsuario.setPlaceholder("");
+        txtUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtUsuarioKeyTyped(evt);
+            }
+        });
 
         cbNivelAcesso.setBackground(new java.awt.Color(204, 204, 204));
         cbNivelAcesso.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -213,6 +223,11 @@ public class pnlUsuarios extends javax.swing.JPanel {
         txtSenha.setBotonColor(new java.awt.Color(0, 0, 0));
         txtSenha.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txtSenha.setPlaceholder("Campo de senha");
+        txtSenha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtSenhaKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -476,6 +491,31 @@ public class pnlUsuarios extends javax.swing.JPanel {
         this.habilitarCampos(false);
         this.clean();
     }//GEN-LAST:event_bCancelarActionPerformed
+
+    private void txtSenhaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSenhaKeyTyped
+         String caracter ="@!#$%^&*()-_+=][|;'º.,''´´«»></?`~\\{}:"; 
+         if(caracter.contains(evt.getKeyChar()+"")){
+         evt.consume();
+         JOptionPane.showMessageDialog(null," nao podes usar  caracteres especiais");
+   }        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSenhaKeyTyped
+
+    private void txtUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyTyped
+         String caracter ="@!#$%^&*()-_+=][|;'º.,''´´«»></?`~\\{}:"; 
+         if(caracter.contains(evt.getKeyChar()+"")){
+         evt.consume();
+         JOptionPane.showMessageDialog(null," nao podes usar  caracteres especiais");
+   }        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUsuarioKeyTyped
+
+    private void txtNomeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeKeyTyped
+         String caracter ="0987654321@!#$%^&*()-_+=][|;'º.,''´´«»></?`~\\{}:"; 
+         if(caracter.contains(evt.getKeyChar()+"")){
+         evt.consume();
+         JOptionPane.showMessageDialog(null," nao podes usar numero nem caracteres especiais");
+   }    
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomeKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
